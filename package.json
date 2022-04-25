@@ -3,7 +3,7 @@
   "source": "src/index.pug",
   "scripts": {
     "dev": "parcel",
-    "build": "parcel build --public-url ./dist"
+    "build": "parcel build --public-url ./"
   },
   "devDependencies": {
     "@parcel/transformer-pug": "^2.4.0",
