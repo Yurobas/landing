@@ -16,6 +16,7 @@ mixin content(items)
             img.content__image(src=item.image, alt=item.alt)
         else
           .content__picture
-            video.content__video(autoplay loop muted preload="auto" poster=item.image) 
-              source(src=item.video)
-              | Элемент video не поддерживается вашим браузером.
+            video.content__video(autoplay loop muted preload="auto" poster=item.image)
+              each video in item.video
+                source(src=video)
+                | Элемент video не поддерживается вашим браузером.
