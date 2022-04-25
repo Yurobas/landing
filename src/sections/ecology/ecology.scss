@@ -1,0 +1,86 @@
+.ecology {
+  position: relative;
+  &__bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 235px;
+    z-index: 1;
+    &-container {
+      position: relative;
+    }
+    &-cloud {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  &__container {
+    position: relative;
+    z-index: 2;
+  }
+  &__content {
+    margin-top: 55px;
+  }
+  &__list {
+    display: flex;
+    &:last-of-type {
+      & .ecology__item-picture {
+        height: 270px;
+        margin-bottom: 50px;
+      }
+    }
+  }
+  &__item {
+    width: calc(100% / 3);
+    padding: 50px;
+    background-color: var(--white);
+    &.--blue {
+      color: var(--white);
+      background-color: var(--bg-blue);
+    }
+    &.--green {
+      color: var(--white);
+      background-color: var(--bg-green);
+    }
+    &-name {
+      text-align: center;
+    }
+    &-picture {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 260px;
+      margin: 50px 0 30px;
+    }
+    &-composition {
+      position: relative;
+      & .ecology__item-image {
+        position: relative;
+        z-index: 2;
+      }
+      & .ecology__item-add {
+        position: absolute;
+        top: 5%;
+        left: 81%;
+        z-index: 1;
+      }
+    }
+  }
+  &__card {
+    display: flex;
+    align-items: center;
+    max-width: 775px;
+    margin: 120px auto;
+    padding: 50px;
+    background-color: var(--white);
+    &-icon {
+      width: 127px;
+      margin-right: 35px;
+    }
+    &-name {
+      margin-bottom: 20px;
+    }
+  }
+}

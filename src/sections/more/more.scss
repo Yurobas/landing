@@ -1,0 +1,21 @@
+.more {
+  &__list {
+    display: flex;
+    margin-top: 50px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: calc(100% / 3);
+  }
+  &__picture {
+    margin-bottom: 50px;
+  }
+  &__image {
+    margin: 0 auto;
+  }
+  &__name {
+    text-align: center;
+  }
+}

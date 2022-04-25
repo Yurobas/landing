@@ -1,0 +1,16 @@
+{
+  "name": "my-project",
+  "source": "src/index.pug",
+  "scripts": {
+    "dev": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "@parcel/transformer-pug": "^2.4.0",
+    "@parcel/transformer-sass": "^2.4.0",
+    "parcel": "^2.4.0"
+  },
+  "dependencies": {
+    "swiper": "^8.1.4"
+  }
+}

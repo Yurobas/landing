@@ -1,0 +1,35 @@
+.plastic {
+  &__title {
+    max-width: 870px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__content {
+    margin-top: 70px;
+  }
+  &__parallax {
+    position: relative;
+    min-width: 740px;
+    overflow: hidden;
+    &-frame {
+      position: relative;
+      z-index: 3;
+    }
+    &-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      max-width: unset;
+      transform: translate(-50%, -50%);
+      transition: var(--transition-parallax);
+      z-index: 1;
+    }
+    &-obj {
+      position: absolute;
+      top: 100px;
+      left: 90px;
+      transition: var(--transition-parallax);
+      z-index: 2;
+    }
+  }
+}

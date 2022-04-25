@@ -1,0 +1,50 @@
+section.firewall.section
+  .firewall__bg
+    .firewall__bg-container
+      .firewall__bg-title.title.title--section Гарантировано - безопасно!
+      img.firewall__bg-image.desktop(src="./images/bg-firewall.jpg", alt="Горы в облаках")
+      img.firewall__bg-image.mobile(src="./images/bg-firewall-mobile.jpg", alt="Горы в облаках")
+      img.firewall__bg-cloud.--top(src="./images/cloud-firewall-top.png", alt="Облако")
+      img.firewall__bg-cloud.--bottom(src="./images/cloud-firewall-bottom.png", alt="Облако")
+  .firewall__container.container
+    .firewall__info
+      .firewall__head 
+        img.firewall__head-icon(src="./images/covid.svg", alt="COVID Secure")
+        .firewall__head-info 
+          h2.firewall__head-title.title.title--block
+            | Уникальная технология 
+            span Firewall
+          p.firewall__description.text.desktop
+            | &laquo;Единственная в&nbsp;мире технология, обеспечивающая безопасность 
+            | от&nbsp;всех микроорганизмов, включая ковид, протестировано европейскими 
+            | и&nbsp;американскими технологиями&raquo;
+      p.firewall__description.text.mobile
+        | &laquo;Единственная в&nbsp;мире технология, обеспечивающая безопасность 
+        | от&nbsp;всех микроорганизмов, включая ковид, протестировано европейскими 
+        | и&nbsp;американскими технологиями&raquo;
+      p.firewall__description.text
+        | Доказано: Firrewall эффективен против COVID-19! Мы&nbsp;используем в&nbsp;нашем 
+        | оборудовании ультрафиолетовые системы обеззараживания воды, которые на&nbsp;сегодняшний 
+        | день являются наиболее безопасной и&nbsp;эффективной технологией для обработки питьевой воды. 
+        | Перед тем, как попасть в&nbsp;Вашу кружку, вода проходит ультрафиолетовую очистку от&nbsp;вирусов. 
+        | Длина волны ультрафиолетовой лампы составляет 260&nbsp;нм&nbsp;&mdash; самая эффективная длина 
+        | для обеззараживания питьевой воды.
+    img.firewall__scheme(src="./images/firewall.jpg", alt="Схема firewall")
+    .firewall__list 
+      +content([
+        {
+          name: 'Механизм технологии <span>BioCote®</span>',
+          description: [
+            {
+              text: `
+                Действует 24 часа в сутки, обеспечивая непрерывную антибактериальную защиту. 
+                Закрытый контур предотвращает любой контакт с внешней средой. Концентрация ионов 
+                серебра на корпусе Автомата, блокирует выработку ферментов в бактериях, 
+                что препятствует росту и размножению микроорганизмов.
+              `
+            }
+          ],
+          image: './images/biocote.jpg',
+          alt: 'BioCote'
+        }
+      ])
