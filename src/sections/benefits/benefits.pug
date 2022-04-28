@@ -10,8 +10,9 @@ section.benefits.section.section--bigger
       | и&nbsp;удобный способ получения чистой, полезной и&nbsp;безлимитной питьевой воды 
       | в&nbsp;любое время. Пролистайте дальше или посмотрите короткое видео&nbsp;&mdash; 
       | что это такое и&nbsp;как использовать.
-    .section__image.cloud-frame
-      img.cloud-frame__bg(src="./images/bg-benefits.jpg", alt="Офис с пурифайером")
+    .section__image.cloud-frame(data-parallax-benefits)
+      img.cloud-frame__bg(data-parallax-benefits-bg src="./images/bg-benefits.jpg", alt="Офис с пурифайером")
+      img.cloud-frame__cloud(src="./images/cloud-frame.png", alt="Облака")
     .benefits__content
       +content([
         {

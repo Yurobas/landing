@@ -19,11 +19,21 @@
     }
   }
   &__picture {
+    position: relative;
     height: 461px;
     margin-bottom: 30px;
   }
   &__image {
+    position: relative;
     margin: 0 auto;
+    z-index: 2;
+    &.--after {
+      position: absolute;
+      top: calc(50% - 50px);
+      left: calc(50% + 120px);
+      transform: translate3d(-50%, -50%, 1px);
+      z-index: 1;
+    }
   }
   &__name {
     margin-bottom: 30px;

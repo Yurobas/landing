@@ -33,16 +33,28 @@
     }
   }
   &__item {
+    position: relative;
     width: calc(100% / 3);
     padding: 50px;
     background-color: var(--white);
+    transition: var(--transition);
+    &:hover {
+      box-shadow: var(--shadow-black);
+      z-index: 2;
+    }
     &.--blue {
       color: var(--white);
       background-color: var(--bg-blue);
+      &:hover {
+        box-shadow: var(--shadow-blue);
+      }
     }
     &.--green {
       color: var(--white);
       background-color: var(--bg-green);
+      &:hover {
+        box-shadow: var(--shadow-green);
+      }
     }
     &-name {
       text-align: center;
@@ -75,6 +87,10 @@
     margin: 120px auto;
     padding: 50px;
     background-color: var(--white);
+    transition: var(--transition);
+    &:hover {
+      box-shadow: var(--shadow-black);
+    }
     &-icon {
       width: 127px;
       margin-right: 35px;

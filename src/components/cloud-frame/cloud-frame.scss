@@ -1,17 +1,25 @@
 .cloud-frame {
   position: relative;
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/cloud-frame.png') 50% 50%/cover no-repeat;
-    z-index: 2;
+  overflow: hidden;
+  &__cloud {
+    position: relative;
+    width: 100%;
+    z-index: 3;
   }
   &__bg {
-    position: relative;
+    position: absolute;
+    max-width: unset;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 1px);
     z-index: 1;
+  }
+  &__water {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: unset;
+    transform: translate3d(-50%, -50%, 1px);
+    z-index: 2;
   }
 }

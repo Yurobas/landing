@@ -8,12 +8,14 @@ section.service.section.section--smaller
       | необходимо своевременно проводить сервисное обслуживание 
       | автомата питьевой воды. Для проведения сервисного обслуживания 
       | обращайтесь к&nbsp;официальному представителю в&nbsp;Вашем регионе.
-    .section__image.cloud-frame
-      img.cloud-frame__bg(src="./images/bg-service.jpg", alt="Москва сити")
+    .section__image.cloud-frame(data-parallax-service)
+      img.cloud-frame__bg(data-parallax-service-bg src="./images/bg-service.jpg", alt="Москва сити")
+      img.cloud-frame__cloud(src="./images/cloud-frame.png", alt="Облака")
     ul.service__row
       li.service__block
         .service__picture
-          img.service__image(src="./images/service-app.png", alt="Приложение Ekodar")
+          img.service__image(data-parallax-service-app src="./images/service-app-01.png", alt="Приложение Ekodar")
+          img.service__image.--after(data-parallax-service-app-after src="./images/service-app-02.png", alt="Приложение Ekodar")
         h4.service__name.title.title--block
           | Скачайте<br>
           span приложение
@@ -33,7 +35,7 @@ section.service.section.section--smaller
               img.service__app-icon(src="./images/appgalery.svg")
       li.service__block.--car
         .service__picture
-          img.service__image(src="./images/service-car.png", alt="Машина Ekodar")
+          img.service__image(data-parallax-service-car src="./images/service-car.png", alt="Машина Ekodar")
         h4.service__name.title.title--block
           | Сервисный центр Экодар сегодня:
         ul.service__description.list
@@ -42,3 +44,4 @@ section.service.section.section--smaller
           li.list__item.text Максимальная оперативность в&nbsp;любых ситуациях
           li.list__item.text Обслуживание оборудования по&nbsp;методикам производителя
           li.list__item.text Постоянный контроль качества воды в&nbsp;аккредитованной лаборатории
+
