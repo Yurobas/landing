@@ -1,18 +1,37 @@
 .hero {
   max-width: 1920px;
   height: 100vh;
+  max-height: 964px;
   margin-left: auto;
   margin-right: auto;
+  background: url('./images/bg-hero-sky.png') 50% 50% / cover no-repeat;
   overflow: hidden;
   &__content {
     position: relative;
     max-width: 1920px;
     height: inherit;
+    max-height: inherit;
     margin: 0 auto;
-    background: url('./images/bg-hero-sky.png') 50% 50% / cover no-repeat;
+    overflow: hidden;
     z-index: 1;
+    &:after,
+    &:before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 100%;
+      width: 100vw;
+      height: inherit;
+      background-color: var(--white);
+      z-index: 2;
+    }
+    &:after {
+      left: unset;
+      right: 100%;
+    }
   }
   &__container {
+    position: relative;
     display: flex;
     margin-top: 20px;
     @media (max-width: 1279px) {
@@ -50,14 +69,20 @@
     right: 0;
     bottom: 0;
     max-width: unset;
-    &-mini {
-      position: fixed;
-      top: 0%;
-      left: 100%;
-      transform: translateX(-50%);
+    &-wide {
+      display: none;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 42%;
+      transform: rotate(-90deg);
+      transform-origin: center center;
+      @media (min-width: 1921px) {
+        display: block;
+      }
       &.--first {
-        top: 28%;
-        left: 39%;
+        left: -42%;
+        transform: rotate(90deg);
       }
     }
   }
@@ -68,11 +93,12 @@
   }
   &__mountains {
     position: fixed;
+    left: 50%;
     bottom: 0;
+    max-width: unset;
+    transform: translateX(-50%);
     &.--first {
-      left: 50%;
       bottom: -1%;
-      transform: translateX(-50%);
     }
   }
 }

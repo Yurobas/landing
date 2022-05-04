@@ -398,7 +398,7 @@ document.addEventListener("DOMContentLoaded", () => {
       obj.el.addEventListener('load', () => {
         obj.height = obj.el.getBoundingClientRect().height / 3;
         calc.height = el.getBoundingClientRect().height;
-        calc.top = el.offsetTop - calc.height;
+        calc.top = el.offsetTop - calc.height / 2;
         calc.bottom = el.offsetTop;
       })
     }
@@ -421,8 +421,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const layer1 = document.querySelector('[data-scroll-parallax-hero-1]');
     const layer2 = document.querySelector('[data-scroll-parallax-hero-2]');
     const layer3 = document.querySelector('[data-scroll-parallax-hero-3]');
-    const layer4 = document.querySelector('[data-scroll-parallax-hero-4]');
-    const layer5 = document.querySelector('[data-scroll-parallax-hero-5]');
     
 
 
@@ -432,10 +430,8 @@ document.addEventListener("DOMContentLoaded", () => {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           layer1.style.transform = `translate3d(-50%, -${12 * step}px, 1px)`;
-          layer2.style.transform = `translate3d(0, -${36 * step}px, 1px)`;
+          layer2.style.transform = `translate3d(-50%, -${36 * step}px, 1px)`;
           layer3.style.transform = `translate3d(0, -${32 * step}px, 1px)`;
-          layer4.style.transform = `translate3d(-50%, -${16 * step}px, 1px)`;
-          layer5.style.transform = `translate3d(-50%, -${60 * step}px, 1px)`;
         })
       })
     })
