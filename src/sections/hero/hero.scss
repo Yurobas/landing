@@ -1,7 +1,6 @@
 .hero {
   max-width: 1920px;
   height: 100vh;
-  max-height: 964px;
   margin-left: auto;
   margin-right: auto;
   background: url('./images/bg-hero-sky.png') 50% 50% / cover no-repeat;
@@ -10,7 +9,6 @@
     position: relative;
     max-width: 1920px;
     height: inherit;
-    max-height: inherit;
     margin: 0 auto;
     overflow: hidden;
     z-index: 1;
