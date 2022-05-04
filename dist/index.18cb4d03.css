@@ -1,20 +1,20 @@
 @font-face {
   font-family: AngleciaPro;
-  src: url("Angleciaprodisplayregular.7199ba8d.ttf") format("truetype");
+  src: url("Angleciaprodisplayregular.c468c73c.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: AngleciaProItalic;
-  src: url("Angleciaprodisplayitalic.21413045.ttf") format("truetype");
+  src: url("Angleciaprodisplayitalic.5a0ae07c.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
   font-family: Ubuntu;
-  src: url("Ubuntu-Regular.7dcb1b04.ttf") format("truetype");
+  src: url("Ubuntu-Regular.fad1e2f5.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -713,7 +713,7 @@ button {
 }
 
 .footer__bg {
-  background: url("bg-footer.41e4c145.jpg") 50% 50% / cover var(--bg-footer) no-repeat;
+  background: url("bg-footer.ce04d4f0.jpg") 50% 50% / cover var(--bg-footer) no-repeat;
   z-index: 1;
   position: absolute;
   inset: 0;
@@ -835,7 +835,7 @@ button {
   max-width: 1920px;
   height: inherit;
   z-index: 1;
-  background: url("bg-hero-sky.35954e9b.png") 50% / cover no-repeat;
+  background: url("bg-hero-sky.1f919076.png") 50% / cover no-repeat;
   margin: 0 auto;
   position: relative;
 }
@@ -1858,4 +1858,4 @@ button {
   text-align: center;
 }
 
-/*# sourceMappingURL=index.ce1d6491.css.map */
+/*# sourceMappingURL=index.18cb4d03.css.map */
