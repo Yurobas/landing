@@ -55,6 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
   parallaxBenefits(center);
   parallaxMinerals(center);
 
+  scrollParallaxPlanet();
+  scrollParallaxHero();
+
   function parallaxPlastic(center) {
     let parallax = {
       el: null,
@@ -70,8 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     parallax.el = document.querySelector('[data-parallax-plastic]');
     parallax.obj.el = document.querySelector('[data-parallax-plastic-obj]');
+
     parallax.bg.el = document.querySelector('[data-parallax-plastic-bg]');
-    parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+    if (parallax.bg.el.complete) {
+      parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+    } else {
+      parallax.bg.el.addEventListener('load', () => {
+        parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+      })
+    }
 
     document.addEventListener('mousemove', event => {
       const mouse = {
@@ -117,13 +127,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     parallax.el = document.querySelector('[data-parallax-stats]');
     parallax.first.el = document.querySelector('[data-parallax-stats-first]');
-    parallax.first.max = (parallax.first.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 4;
+    if (parallax.first.el.complete) {
+      parallax.first.max = (parallax.first.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 4;
+    } else {
+      parallax.first.el.addEventListener('load', () => {
+        parallax.first.max = (parallax.first.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 4;
+      })
+    }
     
     parallax.second.el = document.querySelector('[data-parallax-stats-second]');
-    parallax.second.max = (parallax.second.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 4;
+    if (parallax.second.el.complete) {
+      parallax.second.max = (parallax.second.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 4;
+    } else {
+      parallax.second.el.addEventListener('load', () => {
+        parallax.second.max = (parallax.second.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 4;
+      })
+    }
     
     parallax.bg.el = document.querySelector('[data-parallax-stats-bg]');
-    parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+    if (parallax.bg.el.complete) {
+      parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+    } else {
+      parallax.bg.el.addEventListener('load', () => {
+        parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+      })
+    }
 
     document.addEventListener('mousemove', event => {
       const mouse = {
@@ -176,11 +204,21 @@ document.addEventListener("DOMContentLoaded", () => {
     parallax.car.el = document.querySelector('[data-parallax-service-car]');
     parallax.app.el = document.querySelector('[data-parallax-service-app]');
     parallax.after.el = document.querySelector('[data-parallax-service-app-after]');
+
     parallax.bg.el = document.querySelector('[data-parallax-service-bg]');
-    parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
-    parallax.car.max = parallax.bg.max * 2;
-    parallax.app.max = parallax.bg.max * 5;
-    parallax.after.max = parallax.bg.max * 4;
+    if (parallax.bg.el.complete) {
+      parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+      parallax.car.max = parallax.bg.max * 2;
+      parallax.app.max = parallax.bg.max * 5;
+      parallax.after.max = parallax.bg.max * 4;
+    } else {
+      parallax.bg.el.addEventListener('load', () => {
+        parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+        parallax.car.max = parallax.bg.max * 2;
+        parallax.app.max = parallax.bg.max * 5;
+        parallax.after.max = parallax.bg.max * 4;
+      })
+    }
 
     document.addEventListener('mousemove', event => {
       const mouse = {
@@ -220,7 +258,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     parallax.el = document.querySelector('[data-parallax-benefits]');
     parallax.bg.el = document.querySelector('[data-parallax-benefits-bg]');
-    parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+    if (parallax.bg.el.complete) {
+      parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+    } else {
+      parallax.bg.el.addEventListener('load', () => {
+        parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+      })
+    }
 
     document.addEventListener('mousemove', event => {
       const mouse = {
@@ -256,15 +300,49 @@ document.addEventListener("DOMContentLoaded", () => {
       obj: {
         el: null,
         max: null
+      },
+      first: {
+        el: null,
+        max: 8
+      },
+      second: {
+        el: null,
+        max: 14
+      },
+      third: {
+        el: null,
+        max: 18
+      },
+      fourth: {
+        el: null,
+        max: 22
       }
     }
 
     parallax.el = document.querySelector('[data-parallax-minerals]');
-    parallax.bg.el = document.querySelector('[data-parallax-minerals-bg]');
-    parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
-    parallax.obj.el = document.querySelector('[data-parallax-minerals-obj]');
-    parallax.obj.max = (parallax.obj.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 6;
 
+    parallax.bg.el = document.querySelector('[data-parallax-minerals-bg]');
+    if (parallax.bg.el.complete) {
+      parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+    } else {
+      parallax.bg.el.addEventListener('load', () => {
+        parallax.bg.max = (parallax.bg.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 2;
+      })
+    }
+
+    parallax.obj.el = document.querySelector('[data-parallax-minerals-obj]');
+    if (parallax.obj.el.complete) {
+      parallax.obj.max = (parallax.obj.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 6;
+    } else {
+      parallax.obj.el.addEventListener('load', () => {
+        parallax.obj.max = (parallax.obj.el.getBoundingClientRect().width - parallax.el.getBoundingClientRect().width) / 6;
+      })
+    }
+
+    parallax.first.el = document.querySelector('[data-parallax-minerals-1]');
+    parallax.second.el = document.querySelector('[data-parallax-minerals-2]');
+    parallax.third.el = document.querySelector('[data-parallax-minerals-3]');
+    parallax.fourth.el = document.querySelector('[data-parallax-minerals-4]');
 
     document.addEventListener('mousemove', event => {
       const mouse = {
@@ -286,8 +364,73 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(() => {
           parallax.bg.el.style.transform = `translate3d(calc(-50% + ${parallax.bg.max * mod.x * -1}px), calc(-50% + ${parallax.bg.max * mod.y * -1}px), 1px)`;
           parallax.obj.el.style.transform = `translate3d(calc(-50% + ${parallax.obj.max * mod.x * -1}px), calc(-50% + ${parallax.obj.max * mod.y * -1}px), 1px)`;
+
+          parallax.first.el.style.transform = `translate3d(calc(${parallax.first.max * mod.x * -1}px), calc(${parallax.first.max * mod.y * -1}px), 1px)`;
+          parallax.second.el.style.transform = `translate3d(calc(${parallax.second.max * mod.x * -1}px), calc(${parallax.second.max * mod.y * -1}px), 1px)`;
+          parallax.third.el.style.transform = `translate3d(calc(${parallax.third.max * mod.x * -1}px), calc(${parallax.third.max * mod.y * -1}px), 1px)`;
+          parallax.fourth.el.style.transform = `translate3d(calc(${parallax.fourth.max * mod.x * -1}px), calc(${parallax.fourth.max * mod.y * -1}px), 1px)`;
         })
       })
     });
+  }
+
+  function scrollParallaxPlanet() {
+    const el = document.querySelector('[data-scroll-parallax-planet]');
+    const elHeight = el.getBoundingClientRect().height;
+    const elTop = el.offsetTop - elHeight;
+    const elBottom = el.offsetTop;
+
+    const obj = {
+      el: null,
+      height: null
+    }
+
+    obj.el = el.querySelector('[data-scroll-parallax-planet-obj]');
+    if (obj.el.complete) {
+      obj.height = obj.el.getBoundingClientRect().height / 3;
+    } else {
+      obj.el.addEventListener('load', () => {
+        obj.height = obj.el.getBoundingClientRect().height / 3;
+      })
+    }
+
+    document.addEventListener('scroll', event => {
+      let mod = null;
+
+      if (pageYOffset >= elTop && pageYOffset <= elBottom) {
+        mod = (elBottom - pageYOffset) / elHeight;
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            obj.el.style.transform = `translate3d(0, ${obj.height * mod}px, 1px) rotate(-45deg)`;
+          })
+        })
+      }
+    })
+  }
+
+  function scrollParallaxHero() {
+    const layer1 = document.querySelector('[data-scroll-parallax-hero-1]');
+    const layer2 = document.querySelector('[data-scroll-parallax-hero-2]');
+    const layer3 = document.querySelector('[data-scroll-parallax-hero-3]');
+    const layer4 = document.querySelector('[data-scroll-parallax-hero-4]');
+    const layer5 = document.querySelector('[data-scroll-parallax-hero-5]');
+    
+
+
+    document.addEventListener('scroll', event => {
+      let step = pageYOffset / 100;
+      console.log(step)
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          layer1.style.transform = `translate3d(-50%, -${12 * step}px, 1px)`;
+          layer2.style.transform = `translate3d(0, -${36 * step}px, 1px)`;
+          layer3.style.transform = `translate3d(0, -${32 * step}px, 1px)`;
+          layer4.style.transform = `translate3d(-50%, -${16 * step}px, 1px)`;
+          layer5.style.transform = `translate3d(-50%, -${60 * step}px, 1px)`;
+        })
+      })
+    })
   }
 })

@@ -1,9 +1,8 @@
 {
   "name": "my-project",
-  "source": "src/index.pug",
   "scripts": {
-    "dev": "parcel",
-    "build": "parcel build --public-url ./"
+    "dev": "parcel src/index.pug",
+    "build": "parcel build src/index.pug --no-optimize --public-url ./"
   },
   "devDependencies": {
     "@parcel/transformer-pug": "^2.4.0",
