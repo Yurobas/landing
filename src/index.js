@@ -388,9 +388,11 @@ document.addEventListener("DOMContentLoaded", () => {
     obj.el = el.querySelector('[data-scroll-parallax-planet-obj]');
     if (obj.el.complete) {
       obj.height = obj.el.getBoundingClientRect().height / 3;
+      console.log(1, obj.height)
     } else {
       obj.el.addEventListener('load', () => {
         obj.height = obj.el.getBoundingClientRect().height / 3;
+        console.log(2, obj.height)
       })
     }
 
@@ -399,7 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (pageYOffset >= elTop && pageYOffset <= elBottom) {
         mod = (elBottom - pageYOffset) / elHeight;
-
+        console.log(mod)
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             obj.el.style.transform = `translate3d(0, ${obj.height * mod}px, 1px) rotate(-45deg)`;
@@ -420,7 +422,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener('scroll', event => {
       let step = pageYOffset / 100;
-      console.log(step)
 
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
