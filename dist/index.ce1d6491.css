@@ -712,11 +712,21 @@ button {
   position: relative;
 }
 
+@media (min-width: 2000px) {
+  .footer {
+    padding-top: 13vw;
+  }
+}
+
 .footer__bg {
   background: url("bg-footer.41e4c145.jpg") 50% 50% / cover var(--bg-footer) no-repeat;
   z-index: 1;
   position: absolute;
   inset: 0;
+}
+
+.footer__bg-cloud {
+  width: 100vw;
 }
 
 .footer__container {
@@ -826,7 +836,6 @@ button {
 .hero {
   max-width: 1920px;
   height: 100vh;
-  max-height: 964px;
   background: url("bg-hero-sky.35954e9b.png") 50% / cover no-repeat;
   margin-left: auto;
   margin-right: auto;
@@ -836,7 +845,6 @@ button {
 .hero__content {
   max-width: 1920px;
   height: inherit;
-  max-height: inherit;
   z-index: 1;
   margin: 0 auto;
   position: relative;
@@ -863,6 +871,12 @@ button {
   margin-top: 20px;
   display: flex;
   position: relative;
+}
+
+@media (min-height: 1150px) {
+  .hero__container {
+    margin-top: 20vh;
+  }
 }
 
 @media (max-width: 1279px) {
@@ -925,7 +939,7 @@ button {
   transform-origin: center;
   display: none;
   position: absolute;
-  top: 0;
+  top: 42%;
   left: 42%;
   transform: rotate(-90deg);
 }
@@ -1048,6 +1062,7 @@ button {
 }
 
 .firewall__bg-cloud {
+  width: 100vw;
   max-width: unset;
   position: absolute;
   left: 50%;
@@ -1519,6 +1534,7 @@ button {
 }
 
 .planet__bg-cosmos {
+  width: 100vw;
   z-index: 1;
   position: absolute;
   top: 50%;
@@ -1536,10 +1552,12 @@ button {
 }
 
 .planet__bg-cloud {
+  width: 100vw;
   z-index: 3;
   position: absolute;
-  left: 0;
+  left: 50%;
   right: 0;
+  transform: translateX(-50%);
 }
 
 .planet__bg-cloud.--top {
@@ -1695,10 +1713,17 @@ button {
 }
 
 .ecology__bg-cloud {
+  width: 100vw;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
   right: 0;
+  transform: translateX(-50%);
+}
+
+.ecology__bg-image {
+  width: 100vw;
+  max-width: unset;
 }
 
 .ecology__container {

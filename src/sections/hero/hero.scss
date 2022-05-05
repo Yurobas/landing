@@ -32,6 +32,9 @@
     position: relative;
     display: flex;
     margin-top: 20px;
+    @media (min-height: 1150px) {
+      margin-top: 20vh;
+    }
     @media (max-width: 1279px) {
       flex-direction: column;
     }
@@ -71,7 +74,7 @@
       display: none;
       width: 100%;
       position: absolute;
-      top: 0;
+      top: 42%;
       left: 42%;
       transform: rotate(-90deg);
       transform-origin: center center;

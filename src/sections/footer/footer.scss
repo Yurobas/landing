@@ -2,6 +2,9 @@
   position: relative;
   padding: 250px 0 85px;
   color: var(--white);
+  @media (min-width: 2000px) {
+    padding-top: 13vw;
+  }
   &__bg {
     position: absolute;
     top: 0;
@@ -10,6 +13,9 @@
     bottom: 0;
     background: url('./images/bg-footer.jpg') 50% 50%/cover var(--bg-footer) no-repeat;
     z-index: 1;
+    &-cloud {
+      width: 100vw;
+    }
   }
   &__container {
     position: relative;

@@ -18,6 +18,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
+      width: 100vw;
       transform: translate3d(-50%, -50%, 1px);
       z-index: 1;
     }
@@ -31,8 +32,10 @@
     }
     &-cloud {
       position: absolute;
-      left: 0;
+      left: 50%;
       right: 0;
+      width: 100vw;
+      transform: translateX(-50%);
       z-index: 3;
       &.--top {
         top: 0;

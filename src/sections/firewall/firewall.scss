@@ -37,6 +37,7 @@
     &-cloud {
       position: absolute;
       left: 50%;
+      width: 100vw;
       max-width: unset;
       transform: translateX(-50%);
       &.--top {

@@ -201,7 +201,7 @@ button {
 
 .section {
   background-color: var(--white);
-  padding: 90px 0;
+  padding: 90px 0 0;
   position: relative;
 }
 
@@ -712,11 +712,21 @@ button {
   position: relative;
 }
 
+@media (min-width: 2000px) {
+  .footer {
+    padding-top: 13vw;
+  }
+}
+
 .footer__bg {
   background: url("bg-footer.ce04d4f0.jpg") 50% 50% / cover var(--bg-footer) no-repeat;
   z-index: 1;
   position: absolute;
   inset: 0;
+}
+
+.footer__bg-cloud {
+  width: 100vw;
 }
 
 .footer__container {
@@ -826,6 +836,7 @@ button {
 .hero {
   max-width: 1920px;
   height: 100vh;
+  background: url("bg-hero-sky.1f919076.png") 50% / cover no-repeat;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
@@ -835,14 +846,37 @@ button {
   max-width: 1920px;
   height: inherit;
   z-index: 1;
-  background: url("bg-hero-sky.1f919076.png") 50% / cover no-repeat;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
+}
+
+.hero__content:after, .hero__content:before {
+  content: "";
+  width: 100vw;
+  height: inherit;
+  background-color: var(--white);
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 100%;
+}
+
+.hero__content:after {
+  left: unset;
+  right: 100%;
 }
 
 .hero__container {
   margin-top: 20px;
   display: flex;
+  position: relative;
+}
+
+@media (min-height: 1150px) {
+  .hero__container {
+    margin-top: 20vh;
+  }
 }
 
 @media (max-width: 1279px) {
@@ -900,16 +934,25 @@ button {
   right: 0;
 }
 
-.hero__cloud-mini {
-  position: fixed;
-  top: 0%;
-  left: 100%;
-  transform: translateX(-50%);
+.hero__cloud-wide {
+  width: 100%;
+  transform-origin: center;
+  display: none;
+  position: absolute;
+  top: 42%;
+  left: 42%;
+  transform: rotate(-90deg);
 }
 
-.hero__cloud-mini.--first {
-  top: 28%;
-  left: 39%;
+@media (min-width: 1921px) {
+  .hero__cloud-wide {
+    display: block;
+  }
+}
+
+.hero__cloud-wide.--first {
+  left: -42%;
+  transform: rotate(90deg);
 }
 
 .hero__wl {
@@ -919,14 +962,15 @@ button {
 }
 
 .hero__mountains {
+  max-width: unset;
   position: fixed;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .hero__mountains.--first {
   bottom: -1%;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .minerals__description {
@@ -1018,6 +1062,7 @@ button {
 }
 
 .firewall__bg-cloud {
+  width: 100vw;
   max-width: unset;
   position: absolute;
   left: 50%;
@@ -1489,6 +1534,7 @@ button {
 }
 
 .planet__bg-cosmos {
+  width: 100vw;
   z-index: 1;
   position: absolute;
   top: 50%;
@@ -1506,10 +1552,12 @@ button {
 }
 
 .planet__bg-cloud {
+  width: 100vw;
   z-index: 3;
   position: absolute;
-  left: 0;
+  left: 50%;
   right: 0;
+  transform: translateX(-50%);
 }
 
 .planet__bg-cloud.--top {
@@ -1665,10 +1713,17 @@ button {
 }
 
 .ecology__bg-cloud {
+  width: 100vw;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
   right: 0;
+  transform: translateX(-50%);
+}
+
+.ecology__bg-image {
+  width: 100vw;
+  max-width: unset;
 }
 
 .ecology__container {
@@ -1858,4 +1913,4 @@ button {
   text-align: center;
 }
 
-/*# sourceMappingURL=index.18cb4d03.css.map */
+/*# sourceMappingURL=index.5606506e.css.map */
