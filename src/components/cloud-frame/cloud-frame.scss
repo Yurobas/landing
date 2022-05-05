@@ -3,7 +3,7 @@
   overflow: hidden;
   &__cloud {
     position: relative;
-    width: 100%;
+    width: calc(100% + 1px);
     z-index: 3;
   }
   &__bg {
