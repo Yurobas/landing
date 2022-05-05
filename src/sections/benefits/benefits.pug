@@ -11,7 +11,8 @@ section.benefits.section.section--bigger
       | в&nbsp;любое время. Пролистайте дальше или посмотрите короткое видео&nbsp;&mdash; 
       | что это такое и&nbsp;как использовать.
     .section__image.cloud-frame(data-parallax-benefits)
-      img.cloud-frame__bg(data-parallax-benefits-bg src="./images/bg-benefits.jpg", alt="Офис с пурифайером")
+      .cloud-frame__bg
+        img.cloud-frame__bg-image(data-parallax-benefits-bg src="./images/bg-benefits.jpg", alt="Офис с пурифайером")
       img.cloud-frame__cloud(src="./images/cloud-frame.png", alt="Облака")
     .benefits__content
       +content([
