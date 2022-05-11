@@ -10,13 +10,13 @@ section.service.section.section--smaller
       | обращайтесь к&nbsp;официальному представителю в&nbsp;Вашем регионе.
     .section__image.cloud-frame(data-parallax-service)
       .cloud-frame__bg
-        img.cloud-frame__bg-image(data-parallax-service-bg src="./images/bg-service.jpg", alt="Москва сити")
-      img.cloud-frame__cloud(src="./images/cloud-frame.png", alt="Облака")
+        img.cloud-frame__bg-image(data-parallax-service-bg decoding="async" src="./images/bg-service.jpg", alt="Москва сити")
+      img.cloud-frame__cloud(decoding="async" src="./images/cloud-frame.png", alt="Облака")
     ul.service__row
       li.service__block
         .service__picture
-          img.service__image(data-parallax-service-app src="./images/service-app-01.png", alt="Приложение Ekodar")
-          img.service__image.--after(data-parallax-service-app-after src="./images/service-app-02.png", alt="Приложение Ekodar")
+          img.service__image(data-parallax-service-app loading="lazy" decoding="async" src="./images/service-app-01.png", alt="Приложение Ekodar")
+          img.service__image.--after(data-parallax-service-app-after loading="lazy" decoding="async" src="./images/service-app-02.png", alt="Приложение Ekodar")
         h4.service__name.title.title--block
           | Скачайте<br>
           span приложение
@@ -27,16 +27,16 @@ section.service.section.section--smaller
         ul.service__apps 
           li.service__app
             a.service__app-link(target="_blank" href="https://play.google.com/store/apps/details?id=ru.citllc.ekodar&hl=ru&gl=US")
-              img.service__app-icon(src="./images/googleplay.svg")
+              img.service__app-icon(loading="lazy" decoding="async" src="./images/googleplay.svg")
           li.service__app
             a.service__app-link(target="_blank" href="https://apps.apple.com/ru/app/%D1%8D%D0%BA%D0%BE%D0%B4%D0%B0%D1%80-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B-%D0%BE%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D0%B2%D0%BE%D0%B4%D1%8B/id1586452612")
-              img.service__app-icon(src="./images/appstore.svg")
+              img.service__app-icon(loading="lazy" decoding="async" src="./images/appstore.svg")
           li.service__app
             a.service__app-link(target="_blank" href="https://appgallery.huawei.com/#/app/C104721113")
-              img.service__app-icon(src="./images/appgalery.svg")
+              img.service__app-icon(loading="lazy" decoding="async" src="./images/appgalery.svg")
       li.service__block.--car
         .service__picture
-          img.service__image(data-parallax-service-car src="./images/service-car.png", alt="Машина Ekodar")
+          img.service__image(data-parallax-service-car loading="lazy" decoding="async" src="./images/service-car.png", alt="Машина Ekodar")
         h4.service__name.title.title--block
           | Сервисный центр Экодар сегодня:
         ul.service__description.list

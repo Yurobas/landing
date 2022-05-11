@@ -3,7 +3,7 @@
   height: 100vh;
   margin-left: auto;
   margin-right: auto;
-  background: url('./images/bg-hero-sky.png') 50% 50% / cover no-repeat;
+  background: url('./images/bg-hero-sky.png') 50% 50% / cover var(--white) no-repeat;
   overflow: hidden;
   &__content {
     position: relative;

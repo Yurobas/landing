@@ -13,7 +13,7 @@ mixin content(items)
                   li.list__item.text= point
         if !item.video
           .content__picture
-            img.content__image(src=item.image, alt=item.alt)
+            img.content__image(src=item.image, alt=item.alt loading="lazy" decoding="async")
         else
           .content__picture
             video.content__video(autoplay loop muted preload="auto" poster=item.image)

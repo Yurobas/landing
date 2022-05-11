@@ -238,14 +238,25 @@
       &-pictures {
         display: flex;
         margin-right: -50px;
+        &.--firewall {
+          flex-wrap: wrap;
+          & .scheme-block__item-picture {
+            max-width: unset;
+            &:nth-of-type(2n+2) {
+              margin-right: auto;
+            }
+          }
+        }
       }
       &-picture {
+        max-width: 150px;
         margin-right: 50px;
         &-image {
           margin: 0 auto 15px;
         }
         &-name {
           text-align: center;
+          line-height: 1.375;
         }
       }
     }

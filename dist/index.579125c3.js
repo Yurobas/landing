@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             }, 32);
         }
     })();
-    // Параллакс
+    // Параллаксы
     const screen = {
         width: window.innerWidth,
         height: window.innerHeight
@@ -355,6 +355,232 @@ document.addEventListener("DOMContentLoaded", ()=>{
             });
         });
     }
+    (function modals() {
+        const wrapper = document.querySelector('.wrapper');
+        const links = [
+            ...document.querySelectorAll('[data-modal]')
+        ];
+        const modals = [
+            ...document.querySelectorAll('.modal')
+        ];
+        links.forEach((link)=>{
+            link.addEventListener('click', (event)=>{
+                event.preventDefault();
+                const type = link.href.split('#')[1];
+                const modal = document.getElementById(type);
+                openModal(modal);
+            });
+        });
+        modals.forEach((modal)=>{
+            const close = modal.querySelector('.modal__close');
+            const container = modal.querySelector('.modal__container');
+            close.addEventListener('click', (event)=>{
+                event.preventDefault();
+                closeModal(modal);
+            });
+            modal.addEventListener('click', (event)=>{
+                const target = event.target;
+                (target === modal || target === container) && closeModal(modal);
+            });
+        });
+        document.body.addEventListener('keydown', (event)=>{
+            if (event.code === 'Escape') modals.forEach((modal)=>{
+                closeModal(modal);
+            });
+        });
+        function openModal(el) {
+            el.classList.add('--active');
+            wrapper.classList.add('--modal');
+        }
+        function closeModal(el) {
+            el.classList.remove('--active');
+            wrapper.classList.remove('--modal');
+        }
+    })();
+    (function forms() {
+        const forms = [
+            ...document.querySelectorAll('.form')
+        ];
+        forms.forEach((form)=>{
+            const formEl = form.querySelector('form');
+            const policy = form.querySelector('[name="policy"]');
+            const submit = form.querySelector('[type="submit"]');
+            const nameLabel = form.querySelector('.--name');
+            const nameInput = nameLabel.querySelector('input');
+            const name = {
+                label: nameLabel,
+                input: nameInput,
+                test: function() {
+                    if (this.input.value.length > 1) {
+                        let regexp = new RegExp('^([a-zа-яё ]+|\d+)$', 'gi');
+                        return regexp.test(this.input.value);
+                    } else return false;
+                }
+            };
+            const phoneLabel = form.querySelector('.--phone');
+            const phoneInput = phoneLabel.querySelector('input');
+            const phone = {
+                label: phoneLabel,
+                input: phoneInput,
+                mask: IMask(phoneInput, {
+                    mask: '+{7} (000) 000-00-00'
+                }),
+                test: function() {
+                    if (this.input.value.length === 18) return true;
+                    else return false;
+                }
+            };
+            phone.mask.updateValue();
+            form.addEventListener('submit', (event)=>{
+                event.preventDefault();
+                if (validation(name, phone, policy)) formEl.submit();
+                else console.error('Форма не прошла валидацию и не отправилась!');
+            });
+            name.input.addEventListener('input', ()=>{
+                if (name.input.value.length > 0) {
+                    name.input.classList.add('--value');
+                    if (name.test()) {
+                        name.label.classList.add('--success');
+                        name.label.classList.remove('--error');
+                    } else {
+                        name.label.classList.add('--error');
+                        name.label.classList.remove('--success');
+                    }
+                } else name.input.classList.remove('--value');
+            });
+            name.input.addEventListener('change', ()=>{
+                if (name.test()) {
+                    name.label.classList.add('--success');
+                    name.label.classList.remove('--error');
+                } else {
+                    name.label.classList.add('--error');
+                    name.label.classList.remove('--success');
+                }
+                if (name.input.value.length === 0) {
+                    name.label.classList.remove('--error');
+                    name.label.classList.remove('--success');
+                }
+            });
+            phone.input.addEventListener('input', ()=>{
+                if (phone.input.value.length > 0) {
+                    phone.input.classList.add('--value');
+                    if (phone.test()) {
+                        phone.label.classList.add('--success');
+                        phone.label.classList.remove('--error');
+                    } else {
+                        phone.label.classList.add('--error');
+                        phone.label.classList.remove('--success');
+                    }
+                } else phone.input.classList.remove('--value');
+            });
+            phone.input.addEventListener('change', ()=>{
+                if (phone.test()) {
+                    phone.label.classList.add('--success');
+                    phone.label.classList.remove('--error');
+                } else {
+                    phone.label.classList.add('--error');
+                    phone.label.classList.remove('--success');
+                }
+                if (phone.input.value.length === 0) {
+                    phone.label.classList.remove('--error');
+                    phone.label.classList.remove('--success');
+                    phone.label.classList.remove('--warn');
+                }
+            });
+            policy.addEventListener('change', ()=>{
+                if (!policy.checked) submit.classList.add('--disabled');
+                else submit.classList.remove('--disabled');
+            });
+            phone.mask.on("accept", function() {
+                let value = phone.mask._unmaskedValue;
+                if (value.length === 2) {
+                    let string = String(value).split('');
+                    if (+string[1] === 8 && !checked) {
+                        checked = true;
+                        mask.value = '+7 (';
+                        phone.label.classList.add('--warn');
+                    }
+                }
+            });
+            phone.mask.on("complete", function() {
+                let value = phone.mask._unmaskedValue;
+                let string = String(value).split('');
+                if (string[1] == 7 || string[1] == 8) phone.label.classList.add('--warn');
+                else phone.label.classList.remove('--warn');
+            });
+        });
+        function validation(name, phone, policy) {
+            let check = false;
+            if (!name.test()) {
+                name.label.classList.add('--error');
+                name.label.classList.remove('--success');
+            }
+            if (!phone.test()) {
+                phone.label.classList.add('--error');
+                phone.label.classList.remove('--success');
+            }
+            if (name.test() && phone.test() && policy.checked) check = true;
+            return check;
+        }
+    })();
+    (function scrollTop() {
+        const link = document.querySelector('[data-scroll-top]');
+        const startEl = document.querySelector('section.hero');
+        const startPosition = startEl.getBoundingClientRect().height;
+        document.addEventListener('scroll', (event)=>{
+            const scroll = pageYOffset;
+            if (scroll > startPosition) link.classList.add('--show');
+            else link.classList.remove('--show');
+        });
+        link.addEventListener('click', (event)=>{
+            event.preventDefault();
+            const top = document.body.getBoundingClientRect().top;
+            let pageTo = window.scrollY + top;
+            const time = Date.now();
+            requestAnimationFrame(scroll);
+            function scroll() {
+                var timeFracion = (Date.now() - time) / 800;
+                if (timeFracion > 1) {
+                    window.scrollTo(0, pageTo);
+                    return;
+                }
+                var multiple = 1 - Math.sin(Math.acos(timeFracion - 1));
+                window.scrollTo(0, pageTo - top * multiple);
+                requestAnimationFrame(scroll);
+            }
+        });
+    })();
+    (function firewallAnimation() {
+        let options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 1
+        };
+        let callback = (entries, observer)=>{
+            entries.forEach((entry)=>{
+                if (entry.isIntersecting) entry.target.classList.add('--active');
+                else entry.target.classList.remove('--active');
+            // Each entry describes an intersection change for one observed
+            // target element:
+            //   entry.boundingClientRect
+            //   entry.intersectionRatio
+            //   entry.intersectionRect
+            //   entry.isIntersecting
+            //   entry.rootBounds
+            //   entry.target
+            //   entry.time
+            });
+        };
+        let observer = new IntersectionObserver(callback, options);
+        let target = document.querySelector('.firewall__scheme');
+        observer.observe(target);
+    })();
+    (function footerHeight() {
+        const wrapper = document.querySelector('.section:last-of-type');
+        const footer = document.querySelector('.footer');
+        const height = footer.getBoundingClientRect().height;
+        wrapper.style.marginBottom = `${height}px`;
+    })();
 });
 
 //# sourceMappingURL=index.579125c3.js.map

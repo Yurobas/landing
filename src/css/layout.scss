@@ -2,12 +2,23 @@
   --white: #fff;
   --black: #000;
   --green: #74be2a;
+  --red: #f00;
+
+  --close: #080808;
 
   --text-color-main: #333;
   --text-color-blue: #1ba4d9;
+  --text-color-gray: #6c757d;
 
   --border-aqua-light: #e4f4fb;
   --border-gray: #eee;
+  --border-gray-2: #efefef;
+  --border-label: #eaecf0;
+  --border-label-hover: #6c757d;
+
+  --dot-blue: #3ebeef;
+
+  --checkbox-icon: #0371be;
 
   --bg-green: #43ac35;
   --bg-blue: #203e64;
@@ -17,6 +28,7 @@
   --bg-gray3: #ebebec;
   --bg-gray-light: #e4f4fb;
   --bg-button-blue: #1da8db;
+  --bg-button-blue-2: #1aa1d7;
 
   --transition: .25s;
   --transition-parallax: .1s;
@@ -102,6 +114,8 @@ textarea {
 
 button {
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
   border: none;
   background: none;
   cursor: pointer;
@@ -115,6 +129,11 @@ button {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+  &.--modal {
+    & .section {
+      filter: blur(2px);
+    }
+  }
 }
 
 .container {
@@ -127,6 +146,8 @@ button {
   position: relative;
   padding: 90px 0 0;
   background-color: var(--white);
+  transition: var(--transition);
+  z-index: 2;
   @media (max-width: 768px) {
     padding: 70px 0;
   }

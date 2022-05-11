@@ -1,21 +1,14 @@
 .footer {
-  position: relative;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding: 250px 0 85px;
+  background: url('./images/bg-footer.jpg') 50% 50%/cover var(--bg-footer) no-repeat;
   color: var(--white);
+  z-index: 0;
   @media (min-width: 2000px) {
     padding-top: 13vw;
-  }
-  &__bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/bg-footer.jpg') 50% 50%/cover var(--bg-footer) no-repeat;
-    z-index: 1;
-    &-cloud {
-      width: 100vw;
-    }
   }
   &__container {
     position: relative;
@@ -53,16 +46,18 @@
   }
   &__social {
     position: relative;
-    width: 45px;
-    height: 45px;
+    width: 41px;
+    height: 41px;
     margin-right: 20px;
     border-radius: 50%;
+    border: 2px solid var(--bg-button-blue);
     background-color: var(--bg-button-blue);
     box-shadow: 0px 12px 24px 0px rgba(44, 125, 206, 0.32);
     transition: var(--transition);
     cursor: pointer;
     &:hover {
       box-shadow: unset;
+      border-color: var(--white);
     }
     &-icon {
       position: absolute;
