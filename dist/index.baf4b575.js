@@ -243,10 +243,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     function parallaxMinerals() {
         const el = document.querySelector('[data-parallax-minerals]');
         const block = document.querySelector('[data-parallax-minerals-frame]');
-        const obj = {
-            el: null,
-            max: null
-        };
         const bg = {
             el: null,
             max: null
@@ -272,7 +268,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             bottom: null,
             height: null
         };
-        obj.el = document.querySelector('[data-parallax-minerals-obj]');
         if (block.complete) {
             calc.height = block.getBoundingClientRect().height;
             calc.top = el.offsetTop;
@@ -281,7 +276,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             second.max = calc.height / 8;
             third.max = calc.height / 7;
             fourth.max = calc.height / 6;
-            if (obj.el.complete) obj.max = calc.height / 6;
         } else block.addEventListener('load', ()=>{
             calc.height = block.getBoundingClientRect().height;
             calc.top = el.offsetTop;
@@ -290,9 +284,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             second.max = calc.height / 8;
             third.max = calc.height / 7;
             fourth.max = calc.height / 6;
-            obj.el.addEventListener('load', ()=>{
-                obj.max = calc.height / 6;
-            });
         });
         bg.el = document.querySelector('[data-parallax-minerals-bg]');
         if (bg.el.complete && block.complete) {
@@ -316,7 +307,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             });
             requestAnimationFrame(()=>{
                 requestAnimationFrame(()=>{
-                    obj.el.style.transform = `translate3d(-50%, calc(-50% + ${obj.max * mod}px), 1px)`;
                     first.el.style.transform = `translate3d(0, ${first.max * mod}px, 1px)`;
                     second.el.style.transform = `translate3d(0, ${second.max * mod}px, 1px)`;
                     third.el.style.transform = `translate3d(0, ${third.max * mod}px, 1px)`;
@@ -449,9 +439,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 }
             };
             phone.mask.updateValue();
+            const emailLabel = form.querySelector('.--email');
+            const emailInput = emailLabel.querySelector('input');
+            const email = {
+                label: emailLabel,
+                input: emailInput,
+                test: function() {
+                    // проверка на наличие символа до собачки, собачку, текст между собачкой и точкой, точку и текст после точки
+                    let regexp = new RegExp('.@.+?\\.\\D{2}', 'gi');
+                    return regexp.test(this.input.value);
+                }
+            };
             form.addEventListener('submit', (event)=>{
                 event.preventDefault();
-                if (validation(name, phone, policy)) formEl.submit();
+                if (validation(name, phone, email, policy)) formEl.submit();
                 else console.error('Форма не прошла валидацию и не отправилась!');
             });
             name.input.addEventListener('input', ()=>{
@@ -505,6 +506,31 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     phone.label.classList.remove('--warn');
                 }
             });
+            email.input.addEventListener('input', ()=>{
+                if (email.input.value.length > 0) {
+                    email.input.classList.add('--value');
+                    if (email.test()) {
+                        email.label.classList.add('--success');
+                        email.label.classList.remove('--error');
+                    } else {
+                        email.label.classList.add('--error');
+                        email.label.classList.remove('--success');
+                    }
+                } else email.input.classList.remove('--value');
+            });
+            email.input.addEventListener('change', ()=>{
+                if (email.test()) {
+                    email.label.classList.add('--success');
+                    email.label.classList.remove('--error');
+                } else {
+                    email.label.classList.add('--error');
+                    email.label.classList.remove('--success');
+                }
+                if (email.input.value.length === 0) {
+                    email.label.classList.remove('--error');
+                    email.label.classList.remove('--success');
+                }
+            });
             policy.addEventListener('change', ()=>{
                 if (!policy.checked) submit.classList.add('--disabled');
                 else submit.classList.remove('--disabled');
@@ -527,7 +553,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 else phone.label.classList.remove('--warn');
             });
         });
-        function validation(name, phone, policy) {
+        function validation(name, phone, email, policy) {
             let check = false;
             if (!name.test()) {
                 name.label.classList.add('--error');
@@ -537,7 +563,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 phone.label.classList.add('--error');
                 phone.label.classList.remove('--success');
             }
-            if (name.test() && phone.test() && policy.checked) check = true;
+            if (!email.test()) {
+                email.label.classList.add('--error');
+                email.label.classList.remove('--success');
+            }
+            if (name.test() && phone.test() && email.test() && policy.checked) check = true;
             return check;
         }
     })();
@@ -599,6 +629,58 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const height = footer.getBoundingClientRect().height;
         wrapper.style.marginBottom = `${height}px`;
     })();
+    (function statsCounters() {
+        const values = [
+            ...document.querySelectorAll('[data-stats-value]')
+        ];
+        values.forEach((item)=>{
+            let min, max;
+            const type = item.dataset.statsValue;
+            const elements = [
+                ...item.querySelectorAll('.stats__item-value')
+            ];
+            let value = +elements[0].textContent.replace(/\s+/g, '');
+            switch(type){
+                case 'clients':
+                    min = 1;
+                    max = 3;
+                    if (!localStorage.getItem('clients')) localStorage.setItem('clients', value);
+                    else if (localStorage.getItem('clients') != value) {
+                        value = +localStorage.getItem('clients');
+                        refreshValue(elements, value);
+                    }
+                    break;
+                case 'bottles':
+                    min = 2;
+                    max = 6;
+                    if (!localStorage.getItem('bottles')) localStorage.setItem('bottles', value);
+                    else if (localStorage.getItem('bottles') != value) {
+                        value = +localStorage.getItem('bottles');
+                        refreshValue(elements, value);
+                    }
+                    break;
+            }
+            counter(min, max, value, elements, type);
+        });
+        function counter(min, max, value, elements, type) {
+            const n = getRandomNumber(min, max);
+            const time = getRandomNumber(1, 3);
+            setTimeout(()=>{
+                value = +value + n;
+                refreshValue(elements, value);
+                localStorage.setItem(type, value);
+                counter(min, max, value, elements, type);
+            }, time * 1000);
+        }
+        function getRandomNumber(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+        function refreshValue(elements, value) {
+            elements.forEach((el)=>{
+                el.textContent = value.toLocaleString();
+            });
+        }
+    })();
 });
 
-//# sourceMappingURL=index.34641f95.js.map
+//# sourceMappingURL=index.baf4b575.js.map

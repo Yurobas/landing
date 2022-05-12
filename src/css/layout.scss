@@ -125,6 +125,18 @@ button {
   display: none;
 }
 
+.bold {
+  font-weight: 700;
+}
+
+.normal {
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
 .wrapper {
   position: relative;
   min-height: 100vh;

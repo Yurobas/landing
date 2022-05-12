@@ -202,6 +202,18 @@ button {
   display: none;
 }
 
+.bold {
+  font-weight: 700;
+}
+
+.normal {
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
 .wrapper {
   min-height: 100vh;
   position: relative;
@@ -1234,7 +1246,7 @@ button {
   align-items: center;
   display: flex;
   position: absolute;
-  bottom: 15%;
+  top: 65%;
   left: 50%;
   transform: translate3d(-50%, -50%, 1px);
 }
@@ -1247,6 +1259,7 @@ button {
 }
 
 .minerals__item span {
+  text-shadow: 1px 1px 3px #6c757d;
   display: block;
 }
 
@@ -1933,6 +1946,7 @@ button {
 
 .plastic {
   padding-top: 60px;
+  padding-bottom: 130px;
 }
 
 .plastic__title {
@@ -1976,6 +1990,7 @@ button {
 
 .planet {
   height: 749px;
+  padding: 0;
   position: relative;
   overflow: hidden;
 }
