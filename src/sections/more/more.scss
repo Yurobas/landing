@@ -5,6 +5,7 @@
     right: 0;
     bottom: 1px;
     transform: translateY(100%);
+    pointer-events: none;
     z-index: 1;
     &-cloud {
       width: 100vw;
@@ -19,6 +20,13 @@
     flex-direction: column;
     justify-content: flex-end;
     width: calc(100% / 3);
+  }
+  &__link {
+    &:hover {
+      & .link {
+        background-size: 100% 1px;
+      }
+    }
   }
   &__picture {
     margin-bottom: 50px;

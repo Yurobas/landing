@@ -889,7 +889,7 @@ button {
   max-width: unset;
   z-index: 2;
   position: absolute;
-  top: 45%;
+  top: 53%;
   left: 50%;
   transform: translate3d(-50%, -50%, 1px);
 }
@@ -1970,7 +1970,7 @@ button {
   transition: var(--transition-parallax);
   z-index: 2;
   position: absolute;
-  top: 100px;
+  top: 20%;
   left: 90px;
 }
 
@@ -2008,7 +2008,7 @@ button {
   max-width: 50vw;
   z-index: 2;
   position: absolute;
-  top: 12%;
+  top: 20%;
   left: 45%;
   transform: rotate(-45deg);
 }
@@ -2108,6 +2108,7 @@ button {
 }
 
 .stats__item-value {
+  text-align: right;
   letter-spacing: .01em;
   white-space: nowrap;
   margin: 15px 0;
@@ -2198,6 +2199,7 @@ button {
 }
 
 .ecology__list {
+  padding-bottom: 50px;
   display: flex;
 }
 
@@ -2288,6 +2290,10 @@ button {
   margin-bottom: 20px;
 }
 
+.service__description {
+  max-width: 900px;
+}
+
 .service__row {
   z-index: 5;
   margin-top: -330px;
@@ -2352,6 +2358,7 @@ button {
 }
 
 .more__bg {
+  pointer-events: none;
   z-index: 1;
   position: absolute;
   bottom: 1px;
@@ -2374,6 +2381,10 @@ button {
   flex-direction: column;
   justify-content: flex-end;
   display: flex;
+}
+
+.more__link:hover .link {
+  background-size: 100% 1px;
 }
 
 .more__picture {

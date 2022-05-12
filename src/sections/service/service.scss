@@ -1,4 +1,7 @@
 .service {
+  &__description {
+    max-width: 900px;
+  }
   &__row {
     position: relative;
     display: flex;
