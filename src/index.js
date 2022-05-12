@@ -256,11 +256,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (app.el.complete) {
-      app.max = app.el.getBoundingClientRect().height / 4;
+      app.max = app.el.getBoundingClientRect().height / 3;
       app.el.style.transform = `translate3d(0, ${app.max}px, 1px)`;
     } else {
       app.el.addEventListener('load', () => {
-        app.max = app.el.getBoundingClientRect().height / 4;
+        app.max = app.el.getBoundingClientRect().height / 3;
         app.el.style.transform = `translate3d(0, ${app.max}px, 1px)`;
       })
     }

@@ -210,10 +210,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
             car.el.style.transform = `translate3d(0, ${car.max}px, 1px)`;
         });
         if (app.el.complete) {
-            app.max = app.el.getBoundingClientRect().height / 4;
+            app.max = app.el.getBoundingClientRect().height / 3;
             app.el.style.transform = `translate3d(0, ${app.max}px, 1px)`;
         } else app.el.addEventListener('load', ()=>{
-            app.max = app.el.getBoundingClientRect().height / 4;
+            app.max = app.el.getBoundingClientRect().height / 3;
             app.el.style.transform = `translate3d(0, ${app.max}px, 1px)`;
         });
         if (after.el.complete) {
@@ -601,4 +601,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })();
 });
 
-//# sourceMappingURL=index.6cf40fde.js.map
+//# sourceMappingURL=index.34641f95.js.map
