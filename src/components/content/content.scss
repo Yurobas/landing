@@ -17,6 +17,9 @@
         margin-right: auto;
       }
     }
+    &:last-child {
+      padding-bottom: 70px;
+    }
     & + & {
       margin-top: 120px;
     }

@@ -10,6 +10,10 @@
   pointer-events: none;
   transition: var(--transition);
   cursor: pointer;
+  @media (max-width: 1599px) {
+    right: 50px;
+    bottom: 50px;
+  }
   &:hover {
     box-shadow: var(--shadow-black);
   }

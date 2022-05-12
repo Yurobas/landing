@@ -1,4 +1,4 @@
-section.service.section.section--smaller
+section.service.section.section--smaller(data-parallax-service)
   .container 
     h2.section__title.title.title--section
       | Высокоскоростной 
@@ -8,10 +8,10 @@ section.service.section.section--smaller
       | необходимо своевременно проводить сервисное обслуживание 
       | автомата питьевой воды. Для проведения сервисного обслуживания 
       | обращайтесь к&nbsp;официальному представителю в&nbsp;Вашем регионе.
-    .section__image.cloud-frame(data-parallax-service)
+    .section__image.cloud-frame
       .cloud-frame__bg
         img.cloud-frame__bg-image(data-parallax-service-bg decoding="async" src="./images/bg-service.jpg", alt="Москва сити")
-      img.cloud-frame__cloud(decoding="async" src="./images/cloud-frame.png", alt="Облака")
+      img.cloud-frame__cloud(data-parallax-service-frame decoding="async" src="./images/cloud-frame.png", alt="Облака")
     ul.service__row
       li.service__block
         .service__picture
