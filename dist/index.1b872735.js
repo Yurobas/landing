@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
         parallaxMinerals();
         parallaxServices();
         parallaxPlanet();
-        parallaxHero();
     }
+    parallaxHero();
     function parallaxPlastic() {
         const el = document.querySelector('[data-parallax-plastic]');
         const block = document.querySelector('[data-parallax-plastic-frame]');
@@ -388,16 +388,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const layer2 = document.querySelector('[data-scroll-parallax-hero-2]');
         const layer3 = document.querySelector('[data-scroll-parallax-hero-3]');
         document.addEventListener('scroll', (event)=>{
-            if (checkScreenSize() > 1279) {
-                let step = pageYOffset / 100;
+            let step = pageYOffset / 100;
+            requestAnimationFrame(()=>{
                 requestAnimationFrame(()=>{
-                    requestAnimationFrame(()=>{
-                        layer1.style.transform = `translate3d(-50%, -${54 * step}px, 1px)`;
-                        layer2.style.transform = `translate3d(-50%, -${60 * step}px, 1px)`;
-                        layer3.style.transform = `translate3d(0, -${68 * step}px, 1px)`;
-                    });
+                    layer1.style.transform = `translate3d(-50%, -${54 * step}px, 1px)`;
+                    layer2.style.transform = `translate3d(-50%, -${60 * step}px, 1px)`;
+                    if (checkScreenSize() < 768) layer3.style.transform = `translate3d(-50%, -${68 * step}px, 1px)`;
+                    else layer3.style.transform = `translate3d(0, -${68 * step}px, 1px)`;
                 });
-            }
+            });
         });
     }
     (function modals() {
@@ -640,32 +639,31 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })();
     (function firewallAnimation() {
         let target = document.querySelector('.firewall__scheme');
-        if (checkScreenSize() > 1279) {
-            let options = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 1
-            };
-            let callback = (entries, observer)=>{
-                entries.forEach((entry)=>{
-                    if (checkScreenSize() > 1279) {
-                        if (entry.isIntersecting) entry.target.classList.add('--active');
-                        else entry.target.classList.remove('--active');
-                    }
-                // Each entry describes an intersection change for one observed
-                // target element:
-                //   entry.boundingClientRect
-                //   entry.intersectionRatio
-                //   entry.intersectionRect
-                //   entry.isIntersecting
-                //   entry.rootBounds
-                //   entry.target
-                //   entry.time
-                });
-            };
-            let observer = new IntersectionObserver(callback, options);
-            observer.observe(target);
-        } else target.classList.add('--active');
+        let options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 1
+        };
+        if (checkScreenSize() < 981) options.threshold = 0.5;
+        console.log(options);
+        let callback = (entries, observer)=>{
+            entries.forEach((entry)=>{
+                console.log(entry);
+                if (entry.isIntersecting) entry.target.classList.add('--active');
+                else entry.target.classList.remove('--active');
+            // Each entry describes an intersection change for one observed
+            // target element:
+            //   entry.boundingClientRect
+            //   entry.intersectionRatio
+            //   entry.intersectionRect
+            //   entry.isIntersecting
+            //   entry.rootBounds
+            //   entry.target
+            //   entry.time
+            });
+        };
+        let observer = new IntersectionObserver(callback, options);
+        observer.observe(target);
     })();
     (function footerHeight() {
         const wrapper = document.querySelector('.section:last-of-type');
@@ -763,4 +761,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
 });
 
-//# sourceMappingURL=index.67b04f05.js.map
+//# sourceMappingURL=index.1b872735.js.map

@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
     parallaxServices();
   
     parallaxPlanet();
-    parallaxHero();
   }
+  parallaxHero();
 
   function parallaxPlastic() {
     const el = document.querySelector('[data-parallax-plastic]');
@@ -472,16 +472,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const layer3 = document.querySelector('[data-scroll-parallax-hero-3]');
     
     document.addEventListener('scroll', event => {
-      if (checkScreenSize() > 1279) {
-        let step = pageYOffset / 100;
+      let step = pageYOffset / 100;
+      requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            layer1.style.transform = `translate3d(-50%, -${54 * step}px, 1px)`;
-            layer2.style.transform = `translate3d(-50%, -${60 * step}px, 1px)`;
+          layer1.style.transform = `translate3d(-50%, -${54 * step}px, 1px)`;
+          layer2.style.transform = `translate3d(-50%, -${60 * step}px, 1px)`;
+          if (checkScreenSize() < 768) {
+            layer3.style.transform = `translate3d(-50%, -${68 * step}px, 1px)`;
+          } else {
             layer3.style.transform = `translate3d(0, -${68 * step}px, 1px)`;
-          })
+          }
         })
-      }
+      })
     })
   }
 
@@ -792,21 +794,25 @@ document.addEventListener("DOMContentLoaded", () => {
   +function firewallAnimation() {
     let target = document.querySelector('.firewall__scheme');
 
-    if (checkScreenSize() > 1279) {
       let options = {
         root: null,
         rootMargin: '0px',
         threshold: 1.0
       }
+
+      if (checkScreenSize() < 981) {
+        options.threshold = 0.5
+      }
+
+      console.log(options)
   
       let callback = (entries, observer) => {
         entries.forEach(entry => {
-          if (checkScreenSize() > 1279) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('--active')
-            } else {
-              entry.target.classList.remove('--active')
-            }
+          console.log(entry)
+          if (entry.isIntersecting) {
+            entry.target.classList.add('--active')
+          } else {
+            entry.target.classList.remove('--active')
           }
           // Each entry describes an intersection change for one observed
           // target element:
@@ -822,9 +828,6 @@ document.addEventListener("DOMContentLoaded", () => {
       
       let observer = new IntersectionObserver(callback, options);
       observer.observe(target);
-    } else {
-      target.classList.add('--active')
-    }
   }();
 
   // Высота подвала

@@ -1552,19 +1552,6 @@ button {
   margin-right: auto;
 }
 
-@media (max-width: 767px) {
-  .hero {
-    height: 950px;
-    background: url("bg-hero-mobile.e0ffeff6.jpg") 50% 100% / cover var(--white) no-repeat;
-  }
-}
-
-@media (max-width: 380px) {
-  .hero {
-    height: 800px;
-  }
-}
-
 .hero__content {
   max-width: 1920px;
   height: inherit;
@@ -1680,6 +1667,19 @@ button {
   left: 60%;
 }
 
+@media (max-width: 767px) {
+  .hero__wl {
+    left: 50%;
+    transform: translate3d(-50%, 0, 1px);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__wl {
+    max-width: 38vw;
+  }
+}
+
 .hero__mountains {
   max-width: unset;
   position: fixed;
@@ -1688,14 +1688,14 @@ button {
   transform: translateX(-50%);
 }
 
-.hero__mountains.--first {
-  bottom: -1%;
+@media (max-width: 767px) {
+  .hero__mountains {
+    max-width: 200vw;
+  }
 }
 
-@media (max-width: 767px) {
-  .hero__wl, .hero__cloud, .hero__mountains {
-    display: none;
-  }
+.hero__mountains.--first {
+  bottom: -1%;
 }
 
 @media (max-width: 600px) {
@@ -3501,4 +3501,4 @@ button {
   text-align: center;
 }
 
-/*# sourceMappingURL=index.8dc49cf0.css.map */
+/*# sourceMappingURL=index.1113ba8e.css.map */

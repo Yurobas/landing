@@ -4,13 +4,13 @@
   margin-left: auto;
   margin-right: auto;
   background: url('./images/bg-hero-sky.png') 50% 50% / cover var(--white) no-repeat;
-  @media (max-width: 767px) {
-    height: 950px;
-    background: url('./images/bg-hero-mobile.jpg') 50% 100% / cover var(--white) no-repeat;
-  }
-  @media (max-width: 380px) {
-    height: 800px;
-  }
+  // @media (max-width: 767px) {
+  //   height: 950px;
+  //   background: url('./images/bg-hero-mobile.jpg') 50% 100% / cover var(--white) no-repeat;
+  // }
+  // @media (max-width: 380px) {
+  //   height: 800px;
+  // }
   &__content {
     position: relative;
     max-width: 1920px;
@@ -96,6 +96,13 @@
     bottom: 0;
     max-width: 30vw;
     max-height: 81vh;
+    @media (max-width: 767px) {
+      left: 50%;
+      transform: translate3d(-50%, 0, 1px);
+    }
+    @media (max-width: 480px) {
+      max-width: 38vw;
+    }
   }
   &__mountains {
     position: fixed;
@@ -103,15 +110,18 @@
     bottom: 0;
     max-width: unset;
     transform: translateX(-50%);
+    @media (max-width: 767px) {
+      max-width: 200vw;
+    }
     &.--first {
       bottom: -1%;
     }
   }
-  &__wl,
-  &__cloud,
-  &__mountains {
-    @media (max-width: 767px) {
-      display: none;
-    }
-  }
+  // &__wl,
+  // &__cloud,
+  // &__mountains {
+  //   @media (max-width: 767px) {
+  //     display: none;
+  //   }
+  // }
 }
