@@ -1,4 +1,10 @@
 .more {
+  & .swiper-button-next,
+  & .swiper-button-prev {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
   &__bg {
     position: absolute;
     left: 50%;
@@ -29,9 +35,11 @@
   }
   &__list {
     display: flex;
+    flex-direction: row-reverse;
     align-items: flex-end;
     @media (max-width: 767px) {
       align-items: center;
+      flex-direction: row;
     }
   }
   &__item {
@@ -54,6 +62,9 @@
   }
   &__image {
     margin: 0 auto;
+    @media (max-width: 767px) {
+      max-width: calc(100% - 140px);
+    }
   }
   &__name {
     text-align: center;

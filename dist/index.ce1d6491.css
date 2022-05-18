@@ -3123,6 +3123,12 @@ button {
   margin-top: 1em;
 }
 
+@media (min-width: 768px) {
+  .more .swiper-button-next, .more .swiper-button-prev {
+    display: none;
+  }
+}
+
 .more__bg {
   pointer-events: none;
   z-index: 1;
@@ -3159,12 +3165,14 @@ button {
 }
 
 .more__list {
+  flex-direction: row-reverse;
   align-items: flex-end;
   display: flex;
 }
 
 @media (max-width: 767px) {
   .more__list {
+    flex-direction: row;
     align-items: center;
   }
 }
@@ -3191,6 +3199,12 @@ button {
 
 .more__image {
   margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .more__image {
+    max-width: calc(100% - 140px);
+  }
 }
 
 .more__name {
