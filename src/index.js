@@ -907,7 +907,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setMobileSliderEcology()
   window.addEventListener('resize', setMobileSliderEcology);
   function setMobileSliderEcology() {
-    if (checkScreenSize() < 601) {
+    if (checkScreenSize() < 1280) {
       const slider = new Swiper('.ecology__mobile .swiper', {
         spaceBetween: 30,
         navigation: {

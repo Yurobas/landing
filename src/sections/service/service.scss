@@ -1,16 +1,50 @@
 .service {
+  & .desktop {
+    @media (max-width: 1279px) {
+      display: none;
+    }
+  }
+  & .mobile {
+    display: none;
+    @media (max-width: 1279px) {
+      display: block;
+    }
+  }
+  &__mobile {
+    &-image {
+      margin: 40px auto -55px;
+      @media (min-width: 901px) {
+        display: none;
+      }
+    }
+  }
   &__description {
     max-width: 900px;
+    @media (max-width: 1279px) {
+      max-width: 600px;
+      margin: 0 auto;
+    }
   }
   &__row {
     position: relative;
     display: flex;
     margin-top: -330px;
     z-index: 5;
+    @media (max-width: 1279px) {
+      flex-direction: column-reverse;
+    }
   }
   &__block {
     width: 50%;
     padding: 0 50px;
+    @media (max-width: 1279px) {
+      width: 100%;
+      text-align: center;
+    }
+    @media (max-width: 767px) {
+      padding: 0;
+      text-align: left;
+    }
     &.--car {
       & .service__picture {
         display: flex;
@@ -18,6 +52,17 @@
       }
       & .service__image {
         transform: translateX(-12%);
+        @media (max-width: 1279px) {
+          max-width: 432px;
+        }
+        @media (max-width: 767px) {
+          transform: none;
+        }
+      }
+    }
+    & + & {
+      @media (max-width: 1279px) {
+        margin-bottom: 70px;
       }
     }
   }
@@ -43,10 +88,15 @@
   }
   &__apps {
     display: flex;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-right: -40px;
+    @media (max-width: 1279px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
   &__app {
+    margin-top: 20px;
     margin-right: 40px;
     &-icon {
       width: 130px;

@@ -2850,6 +2850,22 @@ button {
   position: relative;
 }
 
+@media (max-width: 1279px) {
+  .ecology .desktop {
+    display: none;
+  }
+}
+
+.ecology .mobile {
+  display: none;
+}
+
+@media (max-width: 1279px) {
+  .ecology .mobile {
+    display: block;
+  }
+}
+
 .ecology__bg {
   z-index: 1;
   position: absolute;
@@ -3056,8 +3072,41 @@ button {
   margin-top: 30px;
 }
 
+@media (max-width: 1279px) {
+  .service .desktop {
+    display: none;
+  }
+}
+
+.service .mobile {
+  display: none;
+}
+
+@media (max-width: 1279px) {
+  .service .mobile {
+    display: block;
+  }
+}
+
+.service__mobile-image {
+  margin: 40px auto -55px;
+}
+
+@media (min-width: 901px) {
+  .service__mobile-image {
+    display: none;
+  }
+}
+
 .service__description {
   max-width: 900px;
+}
+
+@media (max-width: 1279px) {
+  .service__description {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 }
 
 .service__row {
@@ -3067,9 +3116,29 @@ button {
   position: relative;
 }
 
+@media (max-width: 1279px) {
+  .service__row {
+    flex-direction: column-reverse;
+  }
+}
+
 .service__block {
   width: 50%;
   padding: 0 50px;
+}
+
+@media (max-width: 1279px) {
+  .service__block {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .service__block {
+    text-align: left;
+    padding: 0;
+  }
 }
 
 .service__block.--car .service__picture {
@@ -3079,6 +3148,24 @@ button {
 
 .service__block.--car .service__image {
   transform: translateX(-12%);
+}
+
+@media (max-width: 1279px) {
+  .service__block.--car .service__image {
+    max-width: 432px;
+  }
+}
+
+@media (max-width: 767px) {
+  .service__block.--car .service__image {
+    transform: none;
+  }
+}
+
+@media (max-width: 1279px) {
+  .service__block + .service__block {
+    margin-bottom: 70px;
+  }
 }
 
 .service__picture {
@@ -3106,12 +3193,20 @@ button {
 }
 
 .service__apps {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-right: -40px;
   display: flex;
 }
 
+@media (max-width: 1279px) {
+  .service__apps {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 .service__app {
+  margin-top: 20px;
   margin-right: 40px;
 }
 
@@ -3162,6 +3257,10 @@ button {
   .more__title, .more__description {
     padding: 0 30px;
   }
+}
+
+.more__description {
+  max-width: 900px;
 }
 
 .more__list {
