@@ -12,11 +12,23 @@ mixin content(items)
                 each point in info.list 
                   li.list__item.text= point
         if !item.video
-          .content__picture
-            img.content__image(src=item.image, alt=item.alt loading="lazy" decoding="async")
+          if item.mobile
+            .content__picture
+              img.content__image.desktop(src=item.image, alt=item.alt loading="lazy" decoding="async")
+              img.content__image.mobile(src=item.mobile, alt=item.alt loading="lazy" decoding="async")
+          else
+            .content__picture
+              img.content__image(src=item.image, alt=item.alt loading="lazy" decoding="async")
         else
           .content__picture
-            video.content__video(autoplay loop muted preload="auto" poster=item.image)
-              each video in item.video
-                source(src=video)
-                | Элемент video не поддерживается вашим браузером.
+            if !item.mobile
+              video.content__video(autoplay loop muted preload="auto" poster=item.image)
+                each video in item.video
+                  source(src=video)
+                  | Элемент video не поддерживается вашим браузером.
+            else
+              video.content__video.desktop(autoplay loop muted preload="auto" poster=item.image)
+                each video in item.video
+                  source(src=video)
+                  | Элемент video не поддерживается вашим браузером.
+              img.content__image.mobile(src=item.mobile, alt=item.alt loading="lazy" decoding="async")

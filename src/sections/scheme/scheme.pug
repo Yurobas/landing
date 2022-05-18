@@ -5,42 +5,43 @@ section.scheme.section
       span очистки
   .scheme__content 
     .scheme-block
-      .container
+      .scheme-block__container.container
         .scheme-block__head
           .scheme-block__bg
             img.scheme-block__line(loading="lazy" decoding="async" src="./images/scheme-line.jpg", alt="Кран")
             img.scheme-block__crane(loading="lazy" decoding="async" src="./images/crane.png", alt="Труба с водой")
-          ul.scheme-block__tabs
-            li.scheme-block__tab.--active(data-scheme-tab)
-              .scheme-block__tab-icon
-                .scheme-block__tab-picture 
-                  img.scheme-block__tab-image(decoding="async" src="./images/filter-sediment.png" alt="Фильтр")
-              .scheme-block__tab-name.text.text--mini Седиментный
-            li.scheme-block__tab(data-scheme-tab)
-              .scheme-block__tab-icon
-                .scheme-block__tab-picture 
-                  img.scheme-block__tab-image(decoding="async" src="./images/filter-granul.png" alt="Фильтр")
-              .scheme-block__tab-name.text.text--mini Гранулированный уголь
-            li.scheme-block__tab(data-scheme-tab)
-              .scheme-block__tab-icon
-                .scheme-block__tab-picture 
-                  img.scheme-block__tab-image(decoding="async" src="./images/filter-ultra.png" alt="Фильтр")
-              .scheme-block__tab-name.text.text--mini УФ-мембрана
-            li.scheme-block__tab(data-scheme-tab)
-              .scheme-block__tab-icon
-                .scheme-block__tab-picture 
-                  img.scheme-block__tab-image(decoding="async" src="./images/filter-coal.png" alt="Фильтр")
-              .scheme-block__tab-name.text.text--mini Угольный блок
-            li.scheme-block__tab(data-scheme-tab)
-              .scheme-block__tab-icon
-                .scheme-block__tab-picture.--firewall
-                  img.scheme-block__tab-image(decoding="async" src="./images/filter-firewall.png" alt="Фильтр")
-              .scheme-block__tab-name.text.text--mini Firewall
-            li.scheme-block__tab(data-scheme-tab)
-              .scheme-block__tab-icon
-                .scheme-block__tab-picture.--biocote
-                  img.scheme-block__tab-image(decoding="async" src="./images/filter-biocote.png" alt="Фильтр")
-              .scheme-block__tab-name.text.text--mini BioCote
+          .swiper.scheme-block__slider
+            .swiper-wrapper.scheme-block__tabs
+              .swiper-slide.scheme-block__tab.--active(data-scheme-tab)
+                .scheme-block__tab-icon
+                  .scheme-block__tab-picture 
+                    img.scheme-block__tab-image(decoding="async" src="./images/filter-sediment.png" alt="Фильтр")
+                .scheme-block__tab-name.text.text--mini Седиментный
+              .swiper-slide.scheme-block__tab(data-scheme-tab)
+                .scheme-block__tab-icon
+                  .scheme-block__tab-picture 
+                    img.scheme-block__tab-image(decoding="async" src="./images/filter-granul.png" alt="Фильтр")
+                .scheme-block__tab-name.text.text--mini Гранулированный уголь
+              .swiper-slide.scheme-block__tab(data-scheme-tab)
+                .scheme-block__tab-icon
+                  .scheme-block__tab-picture 
+                    img.scheme-block__tab-image(decoding="async" src="./images/filter-ultra.png" alt="Фильтр")
+                .scheme-block__tab-name.text.text--mini УФ-мембрана
+              .swiper-slide.scheme-block__tab(data-scheme-tab)
+                .scheme-block__tab-icon
+                  .scheme-block__tab-picture 
+                    img.scheme-block__tab-image(decoding="async" src="./images/filter-coal.png" alt="Фильтр")
+                .scheme-block__tab-name.text.text--mini Угольный блок
+              .swiper-slide.scheme-block__tab(data-scheme-tab)
+                .scheme-block__tab-icon
+                  .scheme-block__tab-picture.--firewall
+                    img.scheme-block__tab-image(decoding="async" src="./images/filter-firewall.png" alt="Фильтр")
+                .scheme-block__tab-name.text.text--mini Firewall
+              .swiper-slide.scheme-block__tab(data-scheme-tab)
+                .scheme-block__tab-icon
+                  .scheme-block__tab-picture.--biocote
+                    img.scheme-block__tab-image(decoding="async" src="./images/filter-biocote.png" alt="Фильтр")
+                .scheme-block__tab-name.text.text--mini BioCote
           img.scheme-block__puri(loading="lazy" decoding="async" src="./images/scheme-wl7.gif", alt="WL-7")
       .scheme-block__info
         .scheme-block__arrow
@@ -65,16 +66,16 @@ section.scheme.section
                     .scheme-block__item-name.title.title--item Очищает от:
                     ul.scheme-block__item-pictures
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-01-01.jpg", alt="Ржавчина")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-01-01.jpg", alt="Ржавчина")
                         .scheme-block__item-picture-name.text.text--mini Ржавчины
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-01-02.jpg", alt="Песок")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-01-02.jpg", alt="Песок")
                         .scheme-block__item-picture-name.text.text--mini Песка
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-01-03.jpg", alt="Трубная окалина")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-01-03.jpg", alt="Трубная окалина")
                         .scheme-block__item-picture-name.text.text--mini Трубной окалины
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-01-04.jpg", alt="Ил")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-01-04.jpg", alt="Ил")
                         .scheme-block__item-picture-name.text.text--mini Ила
           li.scheme-block__info-item(data-scheme-content style="max-height: 0px;")
             .container
@@ -90,16 +91,16 @@ section.scheme.section
                     .scheme-block__item-name.title.title--item Очищает от:
                     ul.scheme-block__item-pictures
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-02-01.jpg", alt="Хлор")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-02-01.jpg", alt="Хлор")
                         .scheme-block__item-picture-name.text.text--mini Хлор
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-02-02.jpg", alt="Бензиновая пленка")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-02-02.jpg", alt="Бензиновая пленка")
                         .scheme-block__item-picture-name.text.text--mini Бензиновая пленка
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-02-03.jpg", alt="Тяжелые металлы")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-02-03.jpg", alt="Тяжелые металлы")
                         .scheme-block__item-picture-name.text.text--mini Тяжелые металлы
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-02-04.jpg", alt="Бактерии")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-02-04.jpg", alt="Бактерии")
                         .scheme-block__item-picture-name.text.text--mini Бактерии
           li.scheme-block__info-item(data-scheme-content style="max-height: 0px;")
             .container
@@ -116,16 +117,16 @@ section.scheme.section
                     .scheme-block__item-name.title.title--item Очищает от:
                     ul.scheme-block__item-pictures
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-03-01.jpg", alt="Бактерии")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-03-01.jpg", alt="Бактерии")
                         .scheme-block__item-picture-name.text.text--mini Бактерии
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-03-02.jpg", alt="Водоросли")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-03-02.jpg", alt="Водоросли")
                         .scheme-block__item-picture-name.text.text--mini Водоросли
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-03-03.jpg", alt="Вирусы")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-03-03.jpg", alt="Вирусы")
                         .scheme-block__item-picture-name.text.text--mini Вирусы
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-03-04.jpg", alt="Микробы")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-03-04.jpg", alt="Микробы")
                         .scheme-block__item-picture-name.text.text--mini Микробы
           li.scheme-block__info-item(data-scheme-content style="max-height: 0px;")
             .container
@@ -143,13 +144,13 @@ section.scheme.section
                     .scheme-block__item-name.title.title--item Очищает от:
                     ul.scheme-block__item-pictures
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-04-01.jpg", alt="Удаляет запах")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-04-01.jpg", alt="Удаляет запах")
                         .scheme-block__item-picture-name.text.text--mini Удаляет запах
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-04-02.jpg", alt="Изменяет цветность")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-04-02.jpg", alt="Изменяет цветность")
                         .scheme-block__item-picture-name.text.text--mini Изменяет цветность
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-04-03.jpg", alt="Улучшает вкусовые качества")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-04-03.jpg", alt="Улучшает вкусовые качества")
                         .scheme-block__item-picture-name.text.text--mini Улучшает вкусовые качества
           li.scheme-block__info-item(data-scheme-content style="max-height: 0px;")
             .container
@@ -165,11 +166,11 @@ section.scheme.section
                     .scheme-block__item-name.title.title--item Проверено
                     ul.scheme-block__item-pictures.--firewall
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-05-01.jpg", alt="Institut Dr. Lorcher")
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-05-03.jpg", alt="Sino Analytica")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-05-01.jpg", alt="Institut Dr. Lorcher")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-05-03.jpg", alt="Sino Analytica")
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-05-02.jpg", alt="World Health Organization")
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-05-04.jpg", alt="Water Quality")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-05-02.jpg", alt="World Health Organization")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-05-04.jpg", alt="Water Quality")
           li.scheme-block__info-item(data-scheme-content style="max-height: 0px;")
             .container
               .scheme-block__content
@@ -185,6 +186,6 @@ section.scheme.section
                     .scheme-block__item-name.title.title--item Проверено
                     ul.scheme-block__item-pictures
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-06-01.jpg", alt="BioCote")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-06-01.jpg", alt="BioCote")
                       li.scheme-block__item-picture
-                        img.scheme-block__item-picture-image(loading="lazy" decoding="async" src="./images/scheme-sediment-06-02.jpg", alt="WaterLogic")
+                        img.scheme-block__item-picture-image(decoding="async" src="./images/scheme-sediment-06-02.jpg", alt="WaterLogic")

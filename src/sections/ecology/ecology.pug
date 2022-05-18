@@ -1,5 +1,5 @@
 section.ecology.section.section--bigger
-  .ecology__bg
+  .ecology__bg.desktop
     .ecology__bg-container
       img.ecology__bg-image(decoding="async" src="./images/bg-ecology.jpg", alt="Горы с озером")
       img.ecology__bg-cloud(decoding="async" src="./images/cloud-ecology-bottom.png", alt="Облако")
@@ -7,7 +7,7 @@ section.ecology.section.section--bigger
     h2.section__title.title.title--section
       span Экологические 
       | решения:
-    .ecology__content
+    .ecology__content.desktop
       ul.ecology__list 
         li.ecology__item 
           h4.ecology__item-name.title.title--item Экологически безвредные компрессоры
@@ -61,5 +61,68 @@ section.ecology.section.section--bigger
           h4.ecology__item-name.title.title--item Защита от&nbsp;протечек
           .ecology__item-picture
             img.ecology__item-image(loading="lazy" decoding="async" src="./images/ecology-06.png", alt="Защита от протечек")
-          p.ecology__item-text.text.text--mini
-            | предотвращает неоправданный расход воды.
+  .ecology__mobile.mobile
+    img.ecology__mobile-cloud(decoding="async" src="./images/cloud-ecology-bottom.png", alt="Облако")
+    img.ecology__mobile-cloud(decoding="async" src="./images/cloud-ecology-bottom.png", alt="Облако")
+    .swiper 
+      .swiper-wrapper 
+        .swiper-slide
+          .ecology__mobile-item 
+            h4.ecology__mobile-item-name.title.title--item Экологически безвредные компрессоры
+            .ecology__mobile-item-picture
+              .ecology__mobile-item-composition
+                img.ecology__mobile-item-image(loading="lazy" decoding="async" src="./images/ecology-01.png", alt="R600a gas")
+                img.ecology__mobile-item-add(loading="lazy" decoding="async" src="./images/ecology-01-add.png", alt="Zero Impacto Ambiental")
+            p.ecology__mobile-item-text.text.text--mini
+              | фреон R600a является природным газом, поэтому он&nbsp;не&nbsp;разрушает 
+              | озоновый слой и&nbsp;не&nbsp;способствует появлению парникового 
+              | эффекта, а&nbsp;кроме того, имеет высокий холодильный 
+              | коэффициент, что уменьшает энергопотребление.
+        .swiper-slide
+          .ecology__mobile-item.--blue
+            h4.ecology__mobile-item-name.title.title--item Полное соответствие директиве RoHS
+            .ecology__mobile-item-picture
+              img.ecology__mobile-item-image(loading="lazy" decoding="async" src="./images/ecology-02.png", alt="Сертификат RoHS")
+            p.ecology__mobile-item-text.text.text--mini
+              | ограничение использования в&nbsp;производстве опасных веществ 
+              | и&nbsp;Директиве WEEE&nbsp;&mdash; переработка электронных компонентов.
+        .swiper-slide
+          .ecology__mobile-item 
+            h4.ecology__mobile-item-name.title.title--item &laquo;Углеродный след&raquo; от&nbsp;воды из&nbsp;Автомата Ecomaster
+            .ecology__mobile-item-picture
+              img.ecology__mobile-item-image(loading="lazy" decoding="async" src="./images/ecology-03.png", alt="Углерод CO2")
+            p.ecology__mobile-item-text.text.text--mini
+              | то&nbsp;количество парниковых газов, которое выделяется в&nbsp;атмосферу 
+              | при получении этой воды&nbsp;&mdash; гораздо меньше, чем от&nbsp;привозной 
+              | бутилированной воды.
+        .swiper-slide
+          .ecology__mobile-item
+            h5.ecology__mobile-item-name.title.title--item
+              | Снижение выбросов выхлопных газов
+              | и&nbsp;уменьшение транспорта на&nbsp;дорогах
+            .ecology__mobile-item-picture
+              img.ecology__mobile-item-image.--icon(loading="lazy" decoding="async" src="./images/go-green.svg", alt="Go Green")
+            p.ecology__mobile-item-text.text.text--mini
+              | поскольку отпадает необходимость в&nbsp;доставке бутылей.
+        .swiper-slide
+          .ecology__mobile-item 
+            h4.ecology__mobile-item-name.title.title--item Утилизация материалов
+            .ecology__mobile-item-picture
+              img.ecology__mobile-item-image(loading="lazy" decoding="async" src="./images/ecology-04.png", alt="Утилизация материалов")
+            p.ecology__mobile-item-text.text.text--mini
+              | все Автоматы Ecomaster на&nbsp;80% состоят из&nbsp;деталей и&nbsp;компонентов, 
+              | подлежащих экологически безопасной утилизации.
+        .swiper-slide
+          .ecology__mobile-item.--green
+            h4.ecology__mobile-item-name.title.title--item Энергосбережение
+            .ecology__mobile-item-picture
+              img.ecology__mobile-item-image(loading="lazy" decoding="async" src="./images/ecology-05.png", alt="Энергосбережение")
+            p.ecology__mobile-item-text.text.text--mini
+              | все модели оснащены функцией спящего режима.
+        .swiper-slide
+          .ecology__mobile-item 
+            h4.ecology__mobile-item-name.title.title--item Защита от&nbsp;протечек
+            .ecology__mobile-item-picture
+              img.ecology__mobile-item-image(loading="lazy" decoding="async" src="./images/ecology-06.png", alt="Защита от протечек")
+      .swiper-button-prev
+      .swiper-button-next

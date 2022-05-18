@@ -75,6 +75,9 @@
     position: relative;
     min-width: 740px;
     overflow: hidden;
+    @media (max-width: 768px) {
+      min-width: unset;
+    }
     &-frame {
       position: relative;
       z-index: 4;
@@ -101,6 +104,11 @@
         top: 15%;
         z-index: 3;
       }
+    }
+  }
+  &__mobile {
+    &-image {
+      margin: 0 auto;
     }
   }
 }

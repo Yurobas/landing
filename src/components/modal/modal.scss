@@ -21,6 +21,7 @@
     align-items: center;
     justify-content: center;
     height: inherit;
+    padding: 0;
   }
   &__content {
     position: relative;
@@ -29,6 +30,14 @@
     transition: var(--transition);
     transform: scale3d(.8, .8, .8);
     will-change: transform;
+    @media (max-width: 750px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      min-height: 100vh;
+      padding: 50px;
+    }
   }
   &__close {
     position: absolute;

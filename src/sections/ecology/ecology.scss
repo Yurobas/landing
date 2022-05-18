@@ -106,4 +106,68 @@
       margin-bottom: 20px;
     }
   }
+  &__mobile {
+    position: relative;
+    padding: 120px 0;
+    background: url('./images/ecology-mobile-bg.jpg') 50% 50% / cover no-repeat;
+    &-cloud {
+      position: absolute;
+      left: 50%;
+      max-width: unset;
+      &:first-of-type {
+        top: 0;
+        transform: translateX(-50%) rotate(180deg);
+      }
+      &:last-of-type {
+        bottom: 0;
+        transform: translateX(-50%);
+      }
+    }
+    & .swiper {
+      padding: 0 30px;
+      &:after,
+      &:before {
+        display: none;
+      }
+      &-wrapper {
+        align-items: center;
+      }
+    }
+    &-item {
+      padding: 45px 30px 40px;
+      background-color: var(--white);
+      &-name {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      &-picture {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 260px;
+      }
+      &-image {
+        max-height: 100%;
+        &.--icon {
+          max-width: 50%;
+        }
+      }
+      &-composition {
+        position: relative;
+        & .ecology__mobile-item-image {
+          position: relative;
+          z-index: 2;
+        }
+        & .ecology__mobile-item-add {
+          position: absolute;
+          top: 5%;
+          left: 81%;
+          z-index: 1;
+        }
+      }
+      &-text {
+        margin-top: 30px;
+      }
+    }
+  }
 }

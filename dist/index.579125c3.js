@@ -33,14 +33,25 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 arrow.classList.add('--active');
             }, 32);
         }
+        (function mobileSliderScheme(tabs) {
+            if (checkScreenSize() < 980) {
+                const el = document.querySelector('.swiper.scheme-block__slider');
+                const slider = new Swiper(el, {
+                    slidesPerView: 'auto',
+                    spaceBetween: 20
+                });
+            }
+        })();
     })();
     // Параллаксы
-    parallaxPlastic();
-    parallaxStats();
-    parallaxMinerals();
-    parallaxServices();
-    parallaxPlanet();
-    parallaxHero();
+    if (checkScreenSize() > 1279) {
+        parallaxPlastic();
+        parallaxStats();
+        parallaxMinerals();
+        parallaxServices();
+        parallaxPlanet();
+        parallaxHero();
+    }
     function parallaxPlastic() {
         const el = document.querySelector('[data-parallax-plastic]');
         const block = document.querySelector('[data-parallax-plastic-frame]');
@@ -79,18 +90,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
         if (obj.el.complete) ;
         else obj.el.addEventListener('load', ()=>{});
         document.addEventListener('scroll', (event)=>{
-            let mod = null;
-            mod = (calc.bottom - pageYOffset) / calc.height;
-            if (pageYOffset >= calc.top && pageYOffset <= calc.bottom) requestAnimationFrame(()=>{
-                requestAnimationFrame(()=>{
-                    bg.el.style.transform = `translate3d(-50%, ${bg.max * mod}px, 1px)`;
+            if (checkScreenSize() > 1279) {
+                let mod = null;
+                mod = (calc.bottom - pageYOffset) / calc.height;
+                if (pageYOffset >= calc.top && pageYOffset <= calc.bottom) requestAnimationFrame(()=>{
+                    requestAnimationFrame(()=>{
+                        bg.el.style.transform = `translate3d(-50%, ${bg.max * mod}px, 1px)`;
+                    });
                 });
-            });
-            requestAnimationFrame(()=>{
                 requestAnimationFrame(()=>{
-                    obj.el.style.transform = `translate3d(0, ${obj.max * mod}px, 1px)`;
+                    requestAnimationFrame(()=>{
+                        obj.el.style.transform = `translate3d(0, ${obj.max * mod}px, 1px)`;
+                    });
                 });
-            });
+            }
         });
     }
     function parallaxStats() {
@@ -142,19 +155,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
             });
         });
         document.addEventListener('scroll', (event)=>{
-            let mod = null;
-            mod = (calc.bottom - pageYOffset) / calc.height;
-            if (pageYOffset >= calc.top && pageYOffset <= calc.bottom) requestAnimationFrame(()=>{
-                requestAnimationFrame(()=>{
-                    bg.el.style.transform = `translate3d(-50%, ${bg.max * mod}px, 1px)`;
+            if (checkScreenSize() > 1279) {
+                let mod = null;
+                mod = (calc.bottom - pageYOffset) / calc.height;
+                if (pageYOffset >= calc.top && pageYOffset <= calc.bottom) requestAnimationFrame(()=>{
+                    requestAnimationFrame(()=>{
+                        bg.el.style.transform = `translate3d(-50%, ${bg.max * mod}px, 1px)`;
+                    });
                 });
-            });
-            requestAnimationFrame(()=>{
                 requestAnimationFrame(()=>{
-                    first.el.style.transform = `translate3d(-50%, ${first.max * mod}px, 1px)`;
-                    second.el.style.transform = `translate3d(-50%, ${second.max * mod}px, 1px)`;
+                    requestAnimationFrame(()=>{
+                        first.el.style.transform = `translate3d(-50%, ${first.max * mod}px, 1px)`;
+                        second.el.style.transform = `translate3d(-50%, ${second.max * mod}px, 1px)`;
+                    });
                 });
-            });
+            }
         });
     }
     function parallaxServices() {
@@ -224,20 +239,22 @@ document.addEventListener("DOMContentLoaded", ()=>{
             after.el.style.transform = `translate3d(0, ${after.max}px, 1px)`;
         });
         document.addEventListener('scroll', (event)=>{
-            let mod = null;
-            mod = (calc.bottom - pageYOffset) / calc.height;
-            if (pageYOffset >= calc.top && pageYOffset <= calc.bottom) requestAnimationFrame(()=>{
-                requestAnimationFrame(()=>{
-                    bg.el.style.transform = `translate3d(-50%, ${bg.max * mod}px, 1px)`;
+            if (checkScreenSize() > 1279) {
+                let mod = null;
+                mod = (calc.bottom - pageYOffset) / calc.height;
+                if (pageYOffset >= calc.top && pageYOffset <= calc.bottom) requestAnimationFrame(()=>{
+                    requestAnimationFrame(()=>{
+                        bg.el.style.transform = `translate3d(-50%, ${bg.max * mod}px, 1px)`;
+                    });
                 });
-            });
-            requestAnimationFrame(()=>{
                 requestAnimationFrame(()=>{
-                    car.el.style.transform = `translate3d(0, ${car.max * mod}px, 1px)`;
-                    app.el.style.transform = `translate3d(0, ${app.max * mod}px, 1px)`;
-                    after.el.style.transform = `translate3d(-50%, calc(-50% + ${after.max * mod}px), 1px)`;
+                    requestAnimationFrame(()=>{
+                        car.el.style.transform = `translate3d(0, ${car.max * mod}px, 1px)`;
+                        app.el.style.transform = `translate3d(0, ${app.max * mod}px, 1px)`;
+                        after.el.style.transform = `translate3d(-50%, calc(-50% + ${after.max * mod}px), 1px)`;
+                    });
                 });
-            });
+            }
         });
     }
     function parallaxMinerals() {
@@ -287,32 +304,44 @@ document.addEventListener("DOMContentLoaded", ()=>{
         });
         bg.el = document.querySelector('[data-parallax-minerals-bg]');
         if (bg.el.complete && block.complete) {
-            bg.max = bg.el.getBoundingClientRect().height - calc.height;
-            bg.el.style.transform = `translate3d(-50%, ${bg.max}px, 1px)`;
+            if (checkScreenSize() < 1280) {
+                bg.max = bg.el.getBoundingClientRect().height - calc.height / 2;
+                bg.el.style.transform = `translate3d(-50%, calc(-50% + ${bg.max}px), 1px)`;
+            } else {
+                bg.max = bg.el.getBoundingClientRect().height - calc.height;
+                bg.el.style.transform = `translate3d(-50%, ${bg.max}px, 1px)`;
+            }
         } else bg.el.addEventListener('load', ()=>{
-            bg.max = bg.el.getBoundingClientRect().height - calc.height;
-            bg.el.style.transform = `translate3d(-50%, ${bg.max}px, 1px)`;
+            if (checkScreenSize() < 1280) {
+                bg.max = bg.el.getBoundingClientRect().height - calc.height / 2;
+                bg.el.style.transform = `translate3d(-50%, calc(-50% + ${bg.max}px), 1px)`;
+            } else {
+                bg.max = bg.el.getBoundingClientRect().height - calc.height;
+                bg.el.style.transform = `translate3d(-50%, ${bg.max}px, 1px)`;
+            }
         });
         first.el = document.querySelector('[data-parallax-minerals-1]');
         second.el = document.querySelector('[data-parallax-minerals-2]');
         third.el = document.querySelector('[data-parallax-minerals-3]');
         fourth.el = document.querySelector('[data-parallax-minerals-4]');
         document.addEventListener('scroll', (event)=>{
-            let mod = null;
-            mod = (calc.bottom - pageYOffset) / calc.height;
-            if (pageYOffset >= calc.top && pageYOffset <= calc.bottom) requestAnimationFrame(()=>{
-                requestAnimationFrame(()=>{
-                    bg.el.style.transform = `translate3d(-50%, ${bg.max * mod}px, 1px)`;
+            if (checkScreenSize() > 1279) {
+                let mod = null;
+                mod = (calc.bottom - pageYOffset) / calc.height;
+                if (pageYOffset >= calc.top && pageYOffset <= calc.bottom) requestAnimationFrame(()=>{
+                    requestAnimationFrame(()=>{
+                        if (checkScreenSize() < 1280) bg.el.style.transform = `translate3d(-50%, calc(-50% + ${bg.max * mod}px), 1px)`;
+                    });
                 });
-            });
-            requestAnimationFrame(()=>{
                 requestAnimationFrame(()=>{
-                    first.el.style.transform = `translate3d(0, ${first.max * mod}px, 1px)`;
-                    second.el.style.transform = `translate3d(0, ${second.max * mod}px, 1px)`;
-                    third.el.style.transform = `translate3d(0, ${third.max * mod}px, 1px)`;
-                    fourth.el.style.transform = `translate3d(0, ${fourth.max * mod}px, 1px)`;
+                    requestAnimationFrame(()=>{
+                        first.el.style.transform = `translate3d(0, ${first.max * mod}px, 1px)`;
+                        second.el.style.transform = `translate3d(0, ${second.max * mod}px, 1px)`;
+                        third.el.style.transform = `translate3d(0, ${third.max * mod}px, 1px)`;
+                        fourth.el.style.transform = `translate3d(0, ${fourth.max * mod}px, 1px)`;
+                    });
                 });
-            });
+            }
         });
     }
     function parallaxPlanet() {
@@ -339,13 +368,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
             obj.el.style.transform = `translate3d(0, ${obj.max}px, 1px) rotate(-45deg)`;
         });
         document.addEventListener('scroll', (event)=>{
-            let mod = null;
-            mod = (calc.bottom - pageYOffset) / calc.height;
-            requestAnimationFrame(()=>{
+            if (checkScreenSize() > 1279) {
+                let mod = null;
+                mod = (calc.bottom - pageYOffset) / calc.height;
                 requestAnimationFrame(()=>{
-                    obj.el.style.transform = `translate3d(0, ${obj.max * mod}px, 1px) rotate(-45deg)`;
+                    requestAnimationFrame(()=>{
+                        obj.el.style.transform = `translate3d(0, ${obj.max * mod}px, 1px) rotate(-45deg)`;
+                    });
                 });
-            });
+            }
         });
     }
     function parallaxHero() {
@@ -353,14 +384,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const layer2 = document.querySelector('[data-scroll-parallax-hero-2]');
         const layer3 = document.querySelector('[data-scroll-parallax-hero-3]');
         document.addEventListener('scroll', (event)=>{
-            let step = pageYOffset / 100;
-            requestAnimationFrame(()=>{
+            if (checkScreenSize() > 1279) {
+                let step = pageYOffset / 100;
                 requestAnimationFrame(()=>{
-                    layer1.style.transform = `translate3d(-50%, -${54 * step}px, 1px)`;
-                    layer2.style.transform = `translate3d(-50%, -${60 * step}px, 1px)`;
-                    layer3.style.transform = `translate3d(0, -${68 * step}px, 1px)`;
+                    requestAnimationFrame(()=>{
+                        layer1.style.transform = `translate3d(-50%, -${54 * step}px, 1px)`;
+                        layer2.style.transform = `translate3d(-50%, -${60 * step}px, 1px)`;
+                        layer3.style.transform = `translate3d(0, -${68 * step}px, 1px)`;
+                    });
                 });
-            });
+            }
         });
     }
     (function modals() {
@@ -574,7 +607,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     (function scrollTop() {
         const link = document.querySelector('[data-scroll-top]');
         const startEl = document.querySelector('section.hero');
-        const startPosition = startEl.getBoundingClientRect().height;
+        let startPosition = startEl.getBoundingClientRect().height;
+        window.addEventListener('resize', ()=>{
+            startPosition = startEl.getBoundingClientRect().height;
+        });
         document.addEventListener('scroll', (event)=>{
             const scroll = pageYOffset;
             if (scroll > startPosition) link.classList.add('--show');
@@ -599,34 +635,42 @@ document.addEventListener("DOMContentLoaded", ()=>{
         });
     })();
     (function firewallAnimation() {
-        let options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 1
-        };
-        let callback = (entries, observer)=>{
-            entries.forEach((entry)=>{
-                if (entry.isIntersecting) entry.target.classList.add('--active');
-                else entry.target.classList.remove('--active');
-            // Each entry describes an intersection change for one observed
-            // target element:
-            //   entry.boundingClientRect
-            //   entry.intersectionRatio
-            //   entry.intersectionRect
-            //   entry.isIntersecting
-            //   entry.rootBounds
-            //   entry.target
-            //   entry.time
-            });
-        };
-        let observer = new IntersectionObserver(callback, options);
         let target = document.querySelector('.firewall__scheme');
-        observer.observe(target);
+        if (checkScreenSize() > 1279) {
+            let options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 1
+            };
+            let callback = (entries, observer)=>{
+                entries.forEach((entry)=>{
+                    if (checkScreenSize() > 1279) {
+                        if (entry.isIntersecting) entry.target.classList.add('--active');
+                        else entry.target.classList.remove('--active');
+                    }
+                // Each entry describes an intersection change for one observed
+                // target element:
+                //   entry.boundingClientRect
+                //   entry.intersectionRatio
+                //   entry.intersectionRect
+                //   entry.isIntersecting
+                //   entry.rootBounds
+                //   entry.target
+                //   entry.time
+                });
+            };
+            let observer = new IntersectionObserver(callback, options);
+            observer.observe(target);
+        } else target.classList.add('--active');
     })();
     (function footerHeight() {
         const wrapper = document.querySelector('.section:last-of-type');
         const footer = document.querySelector('.footer');
-        const height = footer.getBoundingClientRect().height;
+        let height = footer.getBoundingClientRect().height;
+        window.addEventListener('resize', ()=>{
+            height = footer.getBoundingClientRect().height;
+            wrapper.style.marginBottom = `${height}px`;
+        });
         wrapper.style.marginBottom = `${height}px`;
     })();
     (function statsCounters() {
@@ -681,6 +725,38 @@ document.addEventListener("DOMContentLoaded", ()=>{
             });
         }
     })();
+    // Проверка разрешения экрана
+    function checkScreenSize() {
+        const size = window.innerWidth;
+        return size;
+    }
+    // Мобильный слайдер ecology
+    setMobileSliderEcology();
+    window.addEventListener('resize', setMobileSliderEcology);
+    function setMobileSliderEcology() {
+        if (checkScreenSize() < 601) {
+            const slider = new Swiper('.ecology__mobile .swiper', {
+                spaceBetween: 30,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                }
+            });
+        }
+    }
+    // Мобильный слайдер more
+    setMobileSliderMore();
+    window.addEventListener('resize', setMobileSliderMore);
+    function setMobileSliderMore() {
+        if (checkScreenSize() < 768) {
+            const slider = new Swiper('.more__content.swiper', {
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                }
+            });
+        }
+    }
 });
 
 //# sourceMappingURL=index.579125c3.js.map

@@ -6,6 +6,9 @@
     width: calc(100% + 1px);
     max-width: unset;
     z-index: 3;
+    @media (max-width: 900px) {
+      display: none;
+    }
   }
   &__bg {
     position: absolute;
@@ -14,6 +17,9 @@
     right: 0;
     bottom: 0;
     overflow: hidden;
+    @media (max-width: 900px) {
+      display: none;
+    }
     &-image {
       position: absolute;
       max-width: unset;
@@ -21,6 +27,11 @@
       bottom: 0;
       transform: translate3d(-50%, 0, 1px);
       z-index: 1;
+      @media (max-width: 1279px) {
+        top: 50%;
+        bottom: unset;
+        transform: translate3d(-50%, -50%, 1px);
+      }
     }
   }
   &__water {
@@ -30,5 +41,12 @@
     max-width: unset;
     transform: translate3d(-50%, -50%, 1px);
     z-index: 2;
+  }
+  &__mobile {
+    margin-left: auto;
+    margin-right: auto;
+    @media (min-width: 901px) {
+      display: none;
+    }
   }
 }

@@ -3,19 +3,25 @@
   font-weight: 400;
   font-family: 'AngleciaPro', serif;
   line-height: 1.2;
-  @media (max-width: 768px) {
+  @media (max-width: 1279px) {
     font-size: 42px;
   }
   &--section {
     font-size: 70px;
-    @media (max-width: 768px) {
+    @media (max-width: 1279px) {
       font-size: 40px;
+    }
+    @media (max-width: 600px) {
+      font-size: 38px;
     }
   }
   &--block {
     font-size: 50px;
-    @media (max-width: 768px) {
+    @media (max-width: 1279px) {
       font-size: 40px;
+    }
+    @media (max-width: 600px) {
+      font-size: 38px;
     }
   }
   &--element {

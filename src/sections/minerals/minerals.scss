@@ -1,4 +1,7 @@
 .minerals {
+  @media (max-width: 600px) {
+    padding-top: 0;
+  }
   &__description {
     max-width: 900px;
   }
@@ -13,6 +16,9 @@
     max-width: 600px;
     transform: translate3d(-50%, -50%, 1px);
     z-index: 1;
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
   &__item {
     margin-right: 30px;

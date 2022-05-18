@@ -13,6 +13,8 @@ section.benefits.section.section--bigger(data-parallax-benefits)
       .cloud-frame__bg
         img.cloud-frame__bg-image(data-parallax-benefits-bg src="./images/bg-benefits.jpg", alt="Офис с пурифайером" decoding="async")
       img.cloud-frame__cloud(data-parallax-benefits-frame src="./images/cloud-frame.png", alt="Облака" decoding="async")
+  img.cloud-frame__mobile(decoding="async" src="./images/benefits-image-mobile.jpg", alt="Горы с чистой водой")
+  .benefits__container.container
     .benefits__content
       +content([
         {
@@ -29,6 +31,7 @@ section.benefits.section.section--bigger(data-parallax-benefits)
             }
           ],
           image: './images/benefits-01.jpg',
+          mobile: './images/benefits-mobile-01.png',
           alt: 'Пурифайер Экомастер WL-7 Top'
         },{
           name: 'Не забывайте<br> про <span>каплесборник</span>!',
@@ -51,6 +54,7 @@ section.benefits.section.section--bigger(data-parallax-benefits)
             './video/drop.webm'
           ],
           image: './images/benefits-02.jpg',
+          mobile: './images/benefits-mobile-02.png',
           alt: 'Пурифайер Экомастер WL-7'
         }
       ])

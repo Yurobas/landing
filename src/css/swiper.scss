@@ -12,6 +12,7 @@ $themeColor: #007aff !default;
 @at-root {
   :root {
     --swiper-theme-color: #{$themeColor};
+    --swiper-navigation-size: 44px;
   }
 }
 .swiper {
@@ -23,6 +24,24 @@ $themeColor: #007aff !default;
   padding: 0;
   /* Fix of Webkit flickering */
   z-index: 1;
+  &:after,
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    z-index: 2;
+  }
+  &:after {
+    left: 0;
+    background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0));
+  }
+  &:before {
+    right: 0;
+    background: linear-gradient(-90deg, #fff, rgba(255, 255, 255, 0));
+  }
 }
 .swiper-vertical > .swiper-wrapper {
   flex-direction: column;
@@ -172,5 +191,79 @@ $themeColor: #007aff !default;
   }
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  width: calc(var(--swiper-navigation-size) / 44 * 27);
+  height: var(--swiper-navigation-size);
+  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--swiper-navigation-color, var(--swiper-theme-color));
+  &.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: auto;
+    pointer-events: none;
+  }
+  &:after {
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    text-transform: none;
+    font-variant: initial;
+    line-height: 1;
+  }
+}
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  &:after {
+    content: 'prev';
+  }
+  left: 10px;
+  right: auto;
+}
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  &:after {
+    content: 'next';
+  }
+  right: 10px;
+  left: auto;
+}
 
+.swiper-button-lock {
+  display: none;
+}
 
+.swiper-button-prev,
+.swiper-button-next {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 6px solid var(--border-aqua-light);
+  background-color: var(--white);
+  transition: var(--transition);
+  &:after {
+    width: 10px;
+    height: 21px;
+    font-size: 21px;
+    color: var(--text-color-main);
+  }
+}
+.swiper-button-prev {
+  left: 10px;
+  &:after {
+    margin-right: 3px;
+  }
+}
+.swiper-button-next {
+  right: 10px;
+  &:after {
+    margin-left: 3px;
+  }
+}

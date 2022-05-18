@@ -1,30 +1,33 @@
 section.more.section.section--bigger
   .more__bg
     img.more__bg-cloud(loading="lazy" decoding="async" src="./images/cloud-footer-top.png", alt="Облако")
-  .container 
+  .more__container.container 
     h2.section__title.title.title--section
       | Можем 
       span больше!
     p.more__description.section__description.text
-      | Мы&nbsp;можем быть всегда рядом. Попробуйте другие продукты от&nbsp;Экодар.<br>
+      | Мы&nbsp;можем быть всегда рядом. Попробуйте другие продукты от&nbsp;Экодар.
       | Откройте доступ к&nbsp;безопасной, полезной и&nbsp;безлимитной воде для 
       | вашего бизнеса, дома и&nbsp;офиса.
-    ul.more__list 
-      li.more__item 
-        a.more__link(href="https://www.ekodar.ru/kvartiry/" target="_blank")
-          .more__picture 
-            img.more__image(loading="lazy" decoding="async" src="./images/more-kvartiry.jpg", alt="")
-          h4.more__name.title.title--item
-            .link Бытовые фильтры для квартир
-      li.more__item 
-        a.more__link(href="https://www.ekodar.ru/voda-v-ofis/oborudovanie/horeca/" target="_blank")
-          .more__picture 
-            img.more__image(loading="lazy" decoding="async" src="./images/more-horeca.jpg", alt="")
-          h4.more__name.title.title--item
-            .link Системы для хорека
-      li.more__item 
-        a.more__link(href="https://www.ekodar.ru/filter/" target="_blank")
-          .more__picture 
-            img.more__image(loading="lazy" decoding="async" src="./images/more-filter.jpg", alt="")
-          h4.more__name.title.title--item
-            .link Системы для коттеджей
+    .more__content.swiper
+      .more__list.swiper-wrapper
+        .more__item.swiper-slide 
+          a.more__link(href="https://www.ekodar.ru/kvartiry/" target="_blank")
+            .more__picture 
+              img.more__image(loading="lazy" decoding="async" src="./images/more-kvartiry.jpg", alt="")
+            h4.more__name.title.title--item
+              .link Бытовые фильтры для квартир
+        .more__item.swiper-slide 
+          a.more__link(href="https://www.ekodar.ru/voda-v-ofis/oborudovanie/horeca/" target="_blank")
+            .more__picture 
+              img.more__image(loading="lazy" decoding="async" src="./images/more-horeca.jpg", alt="")
+            h4.more__name.title.title--item
+              .link Системы для хорека
+        .more__item.swiper-slide 
+          a.more__link(href="https://www.ekodar.ru/filter/" target="_blank")
+            .more__picture 
+              img.more__image(loading="lazy" decoding="async" src="./images/more-filter.jpg", alt="")
+            h4.more__name.title.title--item
+              .link Системы для коттеджей
+      .swiper-button-next
+      .swiper-button-prev
