@@ -1041,6 +1041,12 @@ button {
   padding-right: 0;
 }
 
+@media (max-width: 1279px) {
+  .content__item:nth-of-type(2n) .content__info {
+    padding-left: 0;
+  }
+}
+
 .content__item:nth-of-type(2n) .content__image {
   margin-left: 0;
   margin-right: auto;
@@ -1101,14 +1107,14 @@ button {
     color: var(--white);
     background-color: var(--bg-black);
     margin: 0;
-    padding: 40px 50px 15px;
     position: relative;
+    padding: 40px 50px 15px !important;
   }
 }
 
 @media (max-width: 480px) {
   .content__info {
-    padding: 40px 40px 15px;
+    padding: 40px 30px 15px !important;
   }
 }
 
@@ -1153,10 +1159,17 @@ button {
   margin-top: 5px;
 }
 
+@media (max-width: 1279px) {
+  .content__list {
+    text-align: left;
+  }
+}
+
 @media (max-width: 768px) {
   .content__list {
-    width: 100vw;
-    margin-left: -30px;
+    width: calc(100% - 30px);
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

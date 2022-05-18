@@ -18,6 +18,9 @@
       & .content__info {
         padding-left: 35px;
         padding-right: 0;
+        @media (max-width: 1279px) {
+          padding-left: 0;
+        }
       }
       & .content__image {
         margin-left: 0;
@@ -61,12 +64,12 @@
     @media (max-width: 600px) {
       position: relative;
       margin: 0;
-      padding: 40px 50px 15px;
+      padding: 40px 50px 15px !important;
       color: var(--white);
       background-color: var(--bg-black);
     }
     @media (max-width: 480px) {
-      padding: 40px 40px 15px;
+      padding: 40px 30px 15px !important;
     }
     & .list__item:before {
       @media (max-width: 600px) {
@@ -97,9 +100,13 @@
   }
   &__list {
     margin-top: 5px;
+    @media (max-width: 1279px) {
+      text-align: left;
+    }
     @media (max-width: 768px) {
-      width: 100vw;
-      margin-left: -30px;
+      width: calc(100% - 30px);
+      margin-left: auto;
+      margin-right: auto;
     }
   }
   &__picture {
