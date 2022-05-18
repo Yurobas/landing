@@ -67,8 +67,6 @@
   }
   
   &__info {
-    max-width: 1200px;
-    margin-left: auto;
     padding: 100px 25px 100px 100px;
     background-color: var(--white);
     @media (max-width: 1279px) {
@@ -86,12 +84,19 @@
     @media (max-width: 980px) {
       margin-bottom: 30px;
     }
+    @media (max-width: 430px) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
     &-icon {
       width: 170px;
       margin-right: 50px;
       @media (max-width: 1279px) {
         width: 130px;
         margin-right: 35px;
+      }
+      @media (max-width: 430px) {
+        margin: 0 0 20px;
       }
     }
     &-title {

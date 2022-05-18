@@ -43,7 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const el = document.querySelector('.swiper.scheme-block__slider');
         const slider = new Swiper(el, {
           slidesPerView: 'auto',
-          spaceBetween: 20
+          spaceBetween: 20,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }
         }) 
       }
     }();

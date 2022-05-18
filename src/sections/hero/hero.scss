@@ -8,6 +8,9 @@
     height: 950px;
     background: url('./images/bg-hero-mobile.jpg') 50% 100% / cover var(--white) no-repeat;
   }
+  @media (max-width: 380px) {
+    height: 800px;
+  }
   &__content {
     position: relative;
     max-width: 1920px;
