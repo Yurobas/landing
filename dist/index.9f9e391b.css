@@ -1,20 +1,20 @@
 @font-face {
   font-family: AngleciaPro;
-  src: url("Angleciaprodisplayregular.7199ba8d.ttf") format("truetype");
+  src: url("Angleciaprodisplayregular.c468c73c.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: AngleciaProItalic;
-  src: url("Angleciaprodisplayitalic.21413045.ttf") format("truetype");
+  src: url("Angleciaprodisplayitalic.5a0ae07c.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
   font-family: Ubuntu;
-  src: url("Ubuntu-Regular.7dcb1b04.ttf") format("truetype");
+  src: url("Ubuntu-Regular.fad1e2f5.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -152,6 +152,7 @@
   --bg-black: #1e1e1e;
   --transition: .25s;
   --transition-parallax: .1s;
+  --transition-long: .7s;
   --shadow-black: 0px 10px 40px 0px #3333334d;
   --shadow-blue: 0px 10px 40px 0px #203e64b3;
   --shadow-green: 0px 10px 40px 0px #43ac3580;
@@ -1385,7 +1386,7 @@ button {
 }
 
 .footer {
-  background: url("bg-footer.41e4c145.jpg") 50% 50% / cover var(--bg-footer) no-repeat;
+  background: url("bg-footer.ce04d4f0.jpg") 50% 50% / cover var(--bg-footer) no-repeat;
   color: var(--white);
   z-index: 0;
   padding: 250px 0 85px;
@@ -1547,7 +1548,7 @@ button {
 .hero {
   max-width: 1920px;
   height: 100vh;
-  background: url("bg-hero-sky.35954e9b.png") 50% 50% / cover var(--white) no-repeat;
+  background: url("bg-hero-sky.1f919076.png") 50% 50% / cover var(--white) no-repeat;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1555,7 +1556,7 @@ button {
 @media (max-width: 767px) {
   .hero {
     height: 950px;
-    background: url("bg-hero-mobile.1947a331.jpg") 50% 100% / cover var(--white) no-repeat;
+    background: url("bg-hero-mobile.e0ffeff6.jpg") 50% 100% / cover var(--white) no-repeat;
   }
 }
 
@@ -2808,12 +2809,42 @@ button {
   transform: rotate(-45deg);
 }
 
+.planet__bg-planet.--active {
+  opacity: 1;
+}
+
+@media (max-width: 1279px) {
+  .planet__bg-planet.--active {
+    transition: var(--transition-long);
+    transform: rotate(-45deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .planet__bg-planet.--active {
+    transform: translate(25%, 45%)rotate(-45deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .planet__bg-planet.--active {
+    transform: translate(25%, 35%)rotate(-45deg);
+  }
+}
+
+@media (max-width: 500px) {
+  .planet__bg-planet.--active {
+    transform: translate(25%, 20%)rotate(-45deg);
+  }
+}
+
 @media (max-width: 1279px) {
   .planet__bg-planet {
+    opacity: 0;
     max-width: 100%;
     top: 35%;
     left: 35%;
-    transform: rotate(-45deg);
+    transform: translate3d(0, 100px, 1px)rotate(-45deg);
   }
 }
 
@@ -2829,20 +2860,20 @@ button {
     right: 0;
     left: unset;
     bottom: 0;
-    transform: translate(25%, 45%)rotate(-45deg);
+    transform: translate(25%, calc(45% + 100px))rotate(-45deg);
   }
 }
 
 @media (max-width: 600px) {
   .planet__bg-planet {
     max-width: 130%;
-    transform: translate(25%, 35%)rotate(-45deg);
+    transform: translate(25%, calc(35% + 100px))rotate(-45deg);
   }
 }
 
 @media (max-width: 500px) {
   .planet__bg-planet {
-    transform: translate(25%, 20%)rotate(-45deg);
+    transform: translate(25%, calc(20% + 100px))rotate(-45deg);
   }
 }
 
@@ -3184,7 +3215,7 @@ button {
 }
 
 .ecology__mobile {
-  background: url("ecology-mobile-bg.0636e9f5.jpg") 50% / cover no-repeat;
+  background: url("ecology-mobile-bg.166eca52.jpg") 50% / cover no-repeat;
   padding: 120px 0;
   position: relative;
 }
@@ -3341,15 +3372,29 @@ button {
   transform: translateX(-12%);
 }
 
+.service__block.--car .service__image.--active {
+  opacity: 1;
+  transform: translate3d(-12%, 0, 1px);
+}
+
+@media (max-width: 767px) {
+  .service__block.--car .service__image.--active {
+    transform: translate3d(0, 0, 1px);
+  }
+}
+
 @media (max-width: 1279px) {
   .service__block.--car .service__image {
+    opacity: 0;
     max-width: 432px;
+    transition: var(--transition-long);
+    transform: translate3d(calc(100px - 12%), 0, 1px);
   }
 }
 
 @media (max-width: 767px) {
   .service__block.--car .service__image {
-    transform: none;
+    transform: translate3d(100px, 0, 1px);
   }
 }
 
@@ -3363,6 +3408,17 @@ button {
   height: 461px;
   margin-bottom: 30px;
   position: relative;
+}
+
+.service__picture.mobile .service__image {
+  opacity: 0;
+  transition: var(--transition-long);
+  transform: translate3d(0, 100px, 1px);
+}
+
+.service__picture.mobile .service__image.--active {
+  opacity: 1;
+  transform: none;
 }
 
 .service__image {
@@ -3501,4 +3557,4 @@ button {
   text-align: center;
 }
 
-/*# sourceMappingURL=index.ce1d6491.css.map */
+/*# sourceMappingURL=index.9f9e391b.css.map */

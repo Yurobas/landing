@@ -935,4 +935,46 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     }
   }
+
+  // Мобильные анимации по скролу
+  mobileAnimationsScroll()
+  window.addEventListener('resize', mobileAnimationsScroll);
+  function mobileAnimationsScroll() {
+    let targets = [...document.querySelectorAll('[data-mobile-scroll-show]')];
+    
+    if (checkScreenSize() < 1280) {
+      let options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3
+      }
+  
+      let callback = (entries, observer) => {
+        entries.forEach(entry => {
+          if (checkScreenSize() < 1280) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('--active')
+            }
+          }
+          // Each entry describes an intersection change for one observed
+          // target element:
+          //   entry.boundingClientRect
+          //   entry.intersectionRatio
+          //   entry.intersectionRect
+          //   entry.isIntersecting
+          //   entry.rootBounds
+          //   entry.target
+          //   entry.time
+        });
+      };
+      
+      let observer = new IntersectionObserver(callback, options);
+
+      targets.forEach(el => {
+        const threshold = +el.dataset.mobileScrollShow;
+        options.threshold = threshold;
+        observer.observe(el);
+      })
+    }
+  }
 })

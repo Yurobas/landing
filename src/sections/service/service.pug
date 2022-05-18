@@ -19,7 +19,7 @@ section.service.section.section--smaller(data-parallax-service)
           img.service__image(data-parallax-service-app decoding="async" src="./images/service-app-01.png", alt="Приложение Ekodar")
           img.service__image.--after(data-parallax-service-app-after decoding="async" src="./images/service-app-02.png", alt="Приложение Ekodar")
         .service__picture.mobile
-          img.service__image(decoding="async" src="./images/service-mobile-app.png", alt="Приложение Ekodar")
+          img.service__image(data-mobile-scroll-show="0.5" decoding="async" src="./images/service-mobile-app.png", alt="Приложение Ekodar")
         h4.service__name.title.title--block
           | Скачайте<br>
           span приложение
@@ -39,7 +39,7 @@ section.service.section.section--smaller(data-parallax-service)
               img.service__app-icon(loading="lazy" decoding="async" src="./images/appgalery.svg")
       li.service__block.--car
         .service__picture
-          img.service__image(data-parallax-service-car decoding="async" src="./images/service-car.png", alt="Машина Ekodar")
+          img.service__image(data-parallax-service-car data-mobile-scroll-show="0.5" decoding="async" src="./images/service-car.png", alt="Машина Ekodar")
         h4.service__name.title.title--block
           | Сервисный центр Экодар сегодня:
         ul.service__description.list
