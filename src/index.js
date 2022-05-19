@@ -1018,8 +1018,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('scroll', event => {
       const scroll = window.pageYOffset;
 
-      if (scroll < startPosition && scroll !== 0) {
+      if (scroll < startPosition) {
         header.classList.add('--hide');
+        header.classList.remove('--show');
       } else {
         header.classList.add('--show');
         header.classList.remove('--hide');
@@ -1029,8 +1030,8 @@ document.addEventListener("DOMContentLoaded", () => {
         header.classList.add('--scroll');
       } else {
         header.classList.remove('--show');
-        header.classList.remove('--scroll');
         header.classList.remove('--hide');
+        header.classList.remove('--scroll');
       }
     })
 
