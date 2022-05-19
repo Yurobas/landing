@@ -3,6 +3,7 @@
   --black: #000;
   --green: #74be2a;
   --red: #f00;
+  --blue: #23addd;
 
   --success: #22a053;
 
@@ -150,6 +151,7 @@ button {
   min-height: 100vh;
   overflow: hidden;
   &.--modal {
+    & .header,
     & .section {
       filter: blur(2px);
     }

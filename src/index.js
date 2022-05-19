@@ -1001,4 +1001,47 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     }
   }
+
+  // Шапка
+  +function header() {
+    const header = document.querySelector('.header');
+    const hero = document.querySelector('.hero');
+
+    let startPosition = setStartPosition(hero);
+
+    setContentOffset(hero, header)
+    window.addEventListener('resize', event => {
+      startPosition = setStartPosition();
+      setContentOffset(hero, header)
+    })
+
+    document.addEventListener('scroll', event => {
+      const scroll = window.pageYOffset;
+
+      if (scroll < startPosition && scroll !== 0) {
+        header.classList.add('--hide');
+      } else {
+        header.classList.add('--show');
+        header.classList.remove('--hide');
+      }
+
+      if (scroll !== 0) {
+        header.classList.add('--scroll');
+      } else {
+        header.classList.remove('--show');
+        header.classList.remove('--scroll');
+        header.classList.remove('--hide');
+      }
+    })
+
+    function setContentOffset(hero, header) {
+      const height = header.getBoundingClientRect().height
+      hero.style.paddingTop = `${height}px`;
+    }
+
+    function setStartPosition(hero) {
+      const height = hero.getBoundingClientRect().height;
+      return height;
+    }
+  }();
 })

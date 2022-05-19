@@ -2,8 +2,23 @@ header.header
   .header__container.container
     .header__block
       +logo
+      .header__links
+        a.header__link(href="https://www.ekodar.ru/" target="_blank")
+          svg.header__link-icon(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256" xml:space="preserve")
+            g(transform="translate(128 128) scale(0.72 0.72)" style="")
+              g(style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform="translate(-175.05 -175.05000000000004) scale(3.89 3.89)")
+                path(d="M 78.969 0 H 11.031 C 4.939 0 0 4.939 0 11.031 v 67.937 C 0 85.061 4.939 90 11.031 90 h 67.937 C 85.061 90 90 85.061 90 78.969 V 11.031 C 90 4.939 85.061 0 78.969 0 z M 69.488 68.568 H 20.511 c -2.209 0 -4 -1.791 -4 -4 s 1.791 -4 4 -4 h 48.977 c 2.209 0 4 1.791 4 4 S 71.697 68.568 69.488 68.568 z M 69.488 49 H 20.511 c -2.209 0 -4 -1.791 -4 -4 s 1.791 -4 4 -4 h 48.977 c 2.209 0 4 1.791 4 4 S 71.697 49 69.488 49 z M 69.488 29.432 H 20.511 c -2.209 0 -4 -1.791 -4 -4 s 1.791 -4 4 -4 h 48.977 c 2.209 0 4 1.791 4 4 S 71.697 29.432 69.488 29.432 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round")
+          span.link Главная
+        a.header__link(href="https://www.ekodar.ru/sistemyi_ochistki_vodyi/" target="_blank")
+          svg.header__link-icon(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256" xml:space="preserve")
+            g(transform="translate(128 128) scale(0.72 0.72)" style="")
+              g(style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform="translate(-175.05 -175.05000000000004) scale(3.89 3.89)")
+                path(d="M 32.613 0 H 7.267 C 3.26 0 0 3.26 0 7.267 v 25.346 c 0 4.007 3.26 7.267 7.267 7.267 h 25.346 c 4.007 0 7.267 -3.26 7.267 -7.267 V 7.267 C 39.88 3.26 36.62 0 32.613 0 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round")
+                path(d="M 82.733 0 H 57.387 C 53.38 0 50.12 3.26 50.12 7.267 v 25.346 c 0 4.007 3.26 7.267 7.267 7.267 h 25.347 c 4.007 0 7.267 -3.26 7.267 -7.267 V 7.267 C 90 3.26 86.74 0 82.733 0 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round")
+                path(d="M 32.613 50.12 H 7.267 C 3.26 50.12 0 53.38 0 57.387 v 25.347 C 0 86.74 3.26 90 7.267 90 h 25.346 c 4.007 0 7.267 -3.26 7.267 -7.267 V 57.387 C 39.88 53.38 36.62 50.12 32.613 50.12 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round")
+                path(d="M 82.733 50.12 H 57.387 c -4.007 0 -7.267 3.26 -7.267 7.267 v 25.347 c 0 4.007 3.26 7.267 7.267 7.267 h 25.347 C 86.74 90 90 86.74 90 82.733 V 57.387 C 90 53.38 86.74 50.12 82.733 50.12 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round")
+          span.link Каталог
     .header__block
-      .header__links 
-        a.header__phone.link(href="tel:+74952325262") +7 (495) 232 52 62
-        a.header__button.button(href="#call" data-modal) Заказать звонок 
+      a.header__phone.link(href="tel:+74952325262") +7 (495) 232 52 62
+      a.header__button.button(href="#call" data-modal) Заказать звонок 
     

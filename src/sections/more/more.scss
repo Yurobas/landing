@@ -7,12 +7,14 @@
   }
   &__bg {
     position: absolute;
+    width: 100vw;
     left: 50%;
     bottom: 1px;
     transform: translate(-50%, 100%);
     pointer-events: none;
     z-index: 1;
     &-cloud {
+      width: 100%;
       max-width: unset;
     }
   }

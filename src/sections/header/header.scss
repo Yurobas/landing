@@ -5,7 +5,20 @@
   right: 0;
   width: 100%;
   padding: 60px 0;
+  opacity: 1;
+  transition: var(--transition);
   z-index: 999;
+  &.--show {
+    box-shadow: var(--shadow-black);
+  }
+  &.--scroll {
+    padding: 15px 0;
+    background-color: var(--white);
+  }
+  &.--hide {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
   @media (max-width: 768px) {
     padding: 30px 0;
   }
@@ -13,6 +26,35 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  &__block {
+    display: flex;
+    align-items: center;
+  }
+  &__links {
+    display: flex;
+    align-items: center;
+    margin-left: 90px;
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    &:hover {
+      & .link {
+        background-size: 100% 1px;
+      }
+    }
+    &-icon {
+      width: 30px;
+      height: 30px;
+      fill: var(--blue);
+      margin-right: 20px;
+    }
+    &:not(:last-of-type) {
+      margin-right: 50px;
+    }
   }
   &__phone {
     margin-right: 50px;
