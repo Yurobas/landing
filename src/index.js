@@ -539,7 +539,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     forms.forEach(form => {
       const formEl = form.querySelector('form');
-      const policy = form.querySelector('[name="policy"]');
+      const policy = form.querySelector('[name*="policy"]');
       const submit = form.querySelector('[type="submit"]');
 
       const nameLabel = form.querySelector('.--name');
@@ -594,7 +594,7 @@ document.addEventListener("DOMContentLoaded", () => {
       form.addEventListener('submit', event => {
         event.preventDefault();
         if (validation(name, phone, email, policy)) {
-          formEl.submit();
+          sendForm(formEl);
         } else {
           console.error('Форма не прошла валидацию и не отправилась!')
         }
@@ -745,6 +745,30 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       return check;
+    }
+
+    function sendForm(form) {
+      const action = form.getAttribute('action');
+      fetch(action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'X-Requested-With': 'XMLHttpRequest' } // Чтобы yii понял, что это ajax, а не просто POST-запрос
+      })
+      .then(res => {
+          if (res.status == 200) {
+              console.log('Форма отправилась');
+              res.json().then(data => {
+                  console.log(data);
+                  form.classList.add('--' + data.result);
+              });
+          } else {
+              form.classList.add('--error');
+              console.error('Ошибка HTTP: ' + res.status);
+          }
+      })
+      .catch(err => {
+          console.error(err)
+      });
     }
   }();
 

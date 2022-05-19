@@ -1,4 +1,143 @@
+@keyframes tipInPlaceSuccess {
+  from {
+    top: 0em;
+    left: -1.6em;
+    width: 0em;
+  }
+  to {
+    top: 5.5em;
+    left: 2.8em;
+    width: 2.4em;
+    visibility: visible;
+  }
+}
+
+@keyframes longInPlaceSuccess {
+  from {
+    top: 6.1em;
+    left: 4.45em;
+    width: 0em;
+  }
+  to {
+    top: 4.9em;
+    left: 4.1em;
+    width: 4em;
+    visibility: visible;
+  }
+}
+
+@keyframes tipInPlaceError {
+  from {
+    top: 0em;
+    left: -1.6em;
+    width: 0em;
+  }
+  to {
+    top: 5em;
+    left: 3em;
+    width: 4em;
+    visibility: visible;
+  }
+}
+
+@keyframes longInPlaceError {
+  from {
+    top: 6.1em;
+    left: 4.45em;
+    width: 0em;
+  }
+  to {
+    top: 5em;
+    left: 3.1em;
+    width: 4em;
+    visibility: visible;
+  }
+}
+
 .form {
+  &__el {
+    &.--success {
+      & .form__response {
+        opacity: 1;
+        pointer-events: unset;
+        transform: none;
+        &-icon {
+          &-tip {
+            animation: tipInPlaceSuccess 300ms ease-in-out;
+            animation-fill-mode: forwards;
+            animation-delay: 200ms;
+            visibility: hidden;
+          }
+          &-long {
+            animation: longInPlaceSuccess 140ms ease-in-out;
+            animation-fill-mode: forwards;
+            animation-delay: 300ms + 140ms;
+            visibility: hidden;
+          }
+        }
+      }
+    }
+  }
+  &__content {
+    position: relative;
+  }
+  &__response {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    background-color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(0, 40px, 0);
+    z-index: 3;
+    transition: opacity var(--transition), transform var(--transition);
+    &-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 30px 0;
+    }
+    &-title {
+      margin: 15px 0;
+    }
+    &-icon {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      font-size: 8.5px;
+      border-radius: 50%;
+      border: 3px solid var(--success);
+      background-color: #fff;
+      transform-origin: center;
+      transform: scale(1);
+      &-tip,
+      &-long {
+        position: absolute;
+        height: 3px;
+        background-color: var(--success);
+      }
+      &-tip {
+        top: 5.3em;
+        left: 2.6em;
+        width: 2.4em;
+        transform: rotate(45deg);
+      }
+      &-long {
+        top: 4.9em;
+        left: 4.1em;
+        width: 4em;
+        transform: rotate(-45deg);
+      }
+    }
+  }
   &__name {
     margin-bottom: 35px;
     text-align: center;
