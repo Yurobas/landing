@@ -1007,17 +1007,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector('.header');
     const hero = document.querySelector('.hero');
 
+    const scroll = window.pageYOffset;
     let startPosition = setStartPosition(hero);
 
-    setContentOffset(hero, header)
+    setContentOffset(hero, header);
+
+    setClasses(scroll, header, startPosition)
+
     window.addEventListener('resize', event => {
       startPosition = setStartPosition();
       setContentOffset(hero, header)
     })
 
     document.addEventListener('scroll', event => {
-      const scroll = window.pageYOffset;
+      setClasses(window.pageYOffset, header, startPosition)
+    })
 
+    function setClasses(scroll, header, startPosition) {
       if (scroll < startPosition) {
         header.classList.add('--hide');
         header.classList.remove('--show');
@@ -1033,7 +1039,7 @@ document.addEventListener("DOMContentLoaded", () => {
         header.classList.remove('--hide');
         header.classList.remove('--scroll');
       }
-    })
+    }
 
     function setContentOffset(hero, header) {
       const height = header.getBoundingClientRect().height
