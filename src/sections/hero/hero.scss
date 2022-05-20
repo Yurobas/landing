@@ -5,12 +5,18 @@
   margin-right: auto;
   padding-top: 186.844px;
   background: url('./images/bg-hero-sky.png') 50% 50% / cover var(--white) no-repeat;
+  @media (max-width: 768px) {
+    padding-top: 113px;
+  }
+  @media (max-width: 425px) {
+    padding-top: 110px;
+  }
+  @media (max-width: 400px) {
+    padding-top: 105px;
+  }
   @media (max-width: 767px) {
     height: 950px;
     background: url('./images/bg-hero-mobile.jpg') 50% 100% / cover var(--white) no-repeat;
-  }
-  @media (max-width: 380px) {
-    height: 800px;
   }
   &__content {
     position: relative;

@@ -1008,15 +1008,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const hero = document.querySelector('.hero');
 
     const scroll = window.pageYOffset;
-    let startPosition = setStartPosition(hero);
+    let startPosition = setStartPosition();
 
-    setContentOffset(hero, header);
+    setContentOffset(hero);
 
     setClasses(scroll, header, startPosition)
 
     window.addEventListener('resize', event => {
       startPosition = setStartPosition();
-      setContentOffset(hero, header)
+      setContentOffset(hero)
     })
 
     document.addEventListener('scroll', event => {
@@ -1041,12 +1041,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    function setContentOffset(hero, header) {
+    function setContentOffset(hero) {
+      const header = document.querySelector('.header');
       const height = header.getBoundingClientRect().height
       hero.style.paddingTop = `${height}px`;
     }
 
-    function setStartPosition(hero) {
+    function setStartPosition() {
+      const hero = document.querySelector('.hero');
       const height = hero.getBoundingClientRect().height;
       return height;
     }

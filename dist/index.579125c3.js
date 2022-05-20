@@ -825,12 +825,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const header1 = document.querySelector('.header');
         const hero1 = document.querySelector('.hero');
         const scroll1 = window.pageYOffset;
-        let startPosition1 = setStartPosition(hero1);
-        setContentOffset(hero1, header1);
+        let startPosition1 = setStartPosition();
+        setContentOffset(hero1);
         setClasses(scroll1, header1, startPosition1);
         window.addEventListener('resize', (event)=>{
             startPosition1 = setStartPosition();
-            setContentOffset(hero1, header1);
+            setContentOffset(hero1);
         });
         document.addEventListener('scroll', (event)=>{
             setClasses(window.pageYOffset, header1, startPosition1);
@@ -850,15 +850,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 header.classList.remove('--scroll');
             }
         }
-        function setContentOffset(hero, header) {
+        function setContentOffset(hero) {
+            const header = document.querySelector('.header');
             const height = header.getBoundingClientRect().height;
             hero.style.paddingTop = `${height}px`;
         }
-        function setStartPosition(hero) {
+        function setStartPosition() {
+            const hero = document.querySelector('.hero');
             const height = hero.getBoundingClientRect().height;
             return height;
         }
     })();
 });
 
-//# sourceMappingURL=index.6a3c5456.js.map
+//# sourceMappingURL=index.579125c3.js.map

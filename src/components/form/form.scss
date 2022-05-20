@@ -76,6 +76,9 @@
           }
         }
       }
+      & .form__button {
+        box-shadow: unset;
+      }
     }
   }
   &__content {

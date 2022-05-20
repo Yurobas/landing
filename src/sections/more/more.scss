@@ -7,7 +7,7 @@
   }
   &__bg {
     position: absolute;
-    width: 100vw;
+    min-width: 100vw;
     left: 50%;
     bottom: 1px;
     transform: translate(-50%, 100%);
